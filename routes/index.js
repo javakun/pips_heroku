@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var pg = require('pg');
-var conString = "postgres://username:password@localhost/database";
+//var conString = "postgres://username:password@localhost/database";
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
