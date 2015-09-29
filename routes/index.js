@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
   console.log("i am inside home page!!");
   //
 
+/*
   pg.connect(conString, function(err, client, done) {
   if (err) {
     return console.error('error fetching client from pool', err);
@@ -24,7 +25,7 @@ router.get('/', function(req, res, next) {
   });
 
 });
-
+*/
   res.render('index', { title: 'Express' });
 });
 
