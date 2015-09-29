@@ -9,7 +9,7 @@
 <p><b>Heroku Hosted Hello World:</b>https://pips-heroku-project.herokuapp.com/</p>
 <h3>Retrospective Analysis: Sprint 1 </h3>
 <p><b>What worked well? </b> <br> Heroku streamlined the process of creating a database, which helped immensely. Mockup design worked well. </br></p>
-<p><b>What didn't work well? </b> <br> The project ran into some issues with the previous repository and Heroku synchronization, which led to creating a second repository and project hosted on the cloud. </br></p>
+<p><b>What didn't work well? </b> <br> The project ran into some issues with the previous repository and Heroku synchronization, which led to creating a second repository and project hosted on the cloud. The team also realized that MySQL technologies were less appropriate for the project, given Heroku's much simpler integration of PostgreSQL services.</br></p>
 <p><b>What we learned? </b> <br> Teamwork, Patience and basic SQL functions that allowed us to create, alter and delete tables. </br><p> 
 <h3>Sprint 2 Planning:</h3> 
 <ol>
