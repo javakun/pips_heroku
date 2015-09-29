@@ -6,6 +6,7 @@ var conString = "postgres://username:password@localhost/database";
 /* GET home page. */
 router.get('/', function(req, res, next) {
   console.log("i am inside home page!!");
+  //
 
   pg.connect(conString, function(err, client, done) {
   if (err) {
