@@ -4,8 +4,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log("i am inside home page!!");
-  //
+
+
 
 /*
   pg.connect(conString, function(err, client, done) {
@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
 
 });
 */
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'HELLO WORLD' });
 });
 
 router.get('/ferni', function(req, res, next) {
