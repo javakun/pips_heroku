@@ -1,17 +1,12 @@
 var express = require('express');
 var router = express.Router();
-//var conString = "postgres://username:password@localhost/database";
+var conString = "postgres://ipznqcmmcmdvtq:au3qPIwR9qT3XPwAYCJuszzCSw@ec2-54-163-228-188.compute-1.amazonaws.com:5432/dgek9pf0b67pu";
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-
-
-
-/*
-  pg.connect(conString, function(err, client, done) {
+ pg.connect(conString, function(err, client, done) {
   if (err) {
     return console.error('error fetching client from pool', err);
   }
+  /*
   client.query('SELECT * from USER;', function(err, result) {
     done();
     // ahora result va a tener el resultado del query.
@@ -22,9 +17,11 @@ router.get('/', function(req, res, next) {
     }
     console.log(result.rows[0].number);
   });
-
-});
 */
+});
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
   res.render('index', { title: 'HELLO WORLD' });
 });
 
