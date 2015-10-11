@@ -37,9 +37,12 @@
       <script src="js/respond.min.js"></script>
       <script src="js/lte-ie7.js"></script>
     <![endif]-->
+  <!-- Fix NavBar -->
   <link rel="stylesheet" href="css/navbarfix.css">
+  <!-- ck editor -->
+  <script src="assets/ckeditor/ckeditor.js"></script>
 
-  <script src="assets\ckeditor\ckeditor.js"></script>
+
 
 </head>
 
@@ -104,15 +107,16 @@
   </nav>
   <!-- Page Content -->
   <div class="container">
-
     <!--main content start-->
-    <section id="main-content">
+    <main>
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa-file-text-o"></i> Submit Resume</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="fa fa-users"></i>Profile</li>
+              <li><i class="fa fa-file-text-o"></i>Submit Resume</li>
             </ol>
           </div>
         </div>
@@ -121,6 +125,7 @@
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">Resume Input Field</header>
+
               <div class="panel-body">
                 <div class="form">
                   <form action="#" class="form-horizontal">
@@ -134,10 +139,16 @@
                     </div>
                   </form>
                 </div>
+                <br/>
+                <div class="pull-right">
+                  <button type="submit" class="btn btn-primary"  >Create</button>
+                </div>
               </div>
             </section>
           </div>
         </div>
+      </section>
+    </main>
   </div>
   </div>
   <!-- javascripts -->
@@ -158,8 +169,7 @@
   <script src="js/jquery.hotkeys.js"></script>
   <script src="js/bootstrap-wysiwyg.js"></script>
   <script src="js/bootstrap-wysiwyg-custom.js"></script>
-  <!-- ck editor -->
-  <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
+
   <!-- custom form component script for this page-->
   <script src="js/form-component.js"></script>
   <!-- custome script for all page -->
