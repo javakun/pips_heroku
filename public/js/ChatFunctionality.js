@@ -78,7 +78,8 @@
                 element = element + '<div class="popup-head-left">'+ name +'</div>';
                 element = element + '<div class="popup-head-right"><a href="javascript:close_popup(\''+ id +'\');">&#10005;</a></div>';
                 element = element + '<div style="clear: both"></div></div><div class="popup-messages"></div></div>';
-               
+                   
+                           
                 document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML + element; 
        
                 popups.unshift(id);
