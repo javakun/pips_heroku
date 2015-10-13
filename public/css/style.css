@@ -558,7 +558,7 @@ a.logo span {
     margin-left: 65px;
 }
 #task_notificatoin_bar, #mail_notificatoin_bar, #alert_notificatoin_bar{
-    margin-top: 7px;
+    margin-top: none;
 }
 ul.top-menu > li > a {
     color: #fed189;
