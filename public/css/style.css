@@ -169,7 +169,7 @@ table tr th { color: #688a7e;}
     border-radius: 0;
 }
 .login-form input[type="text"], .login-form input[type="password"] {    
-    border: none;
+    border: 1px solid #B0B6BE;
     box-shadow: none;
     font-size: 16px;
     border-radius: 0; 

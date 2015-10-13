@@ -31,6 +31,7 @@
 
 
 </head>
+
 <body class="login-img3-body">
   <div class="container">
     <br></br>
@@ -42,18 +43,18 @@
         </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-user"></i></span>
-          <input type="text" class="form-control" placeholder="Username" autofocus>
+          <input class="form-control requeired " id="email" name="email" type="email" placeholder="Email" />
         </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-key"></i></span>
-          <input type="password" class="form-control" placeholder="Password">
+          <input  type="password"  class="form-control  " id="password" name="password"  placeholder="Password" />
         </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-key"></i></span>
-          <input type="password" class="form-control" placeholder="Repeat Password">
+          <input type="password"  class="form-control" id="confirm_password" name="confirm_password" placeholder="Repeat Password">
         </div>
 
-        <button type="button" class="btn btn-success btn-block" type="submit">Create Account</button>
+        <button type="submit" class="btn btn-danger btn-success btn-block" type="submit">Create Account</button>
       </div>
     </form>
 
