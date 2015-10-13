@@ -3363,7 +3363,7 @@ ul.inbox-pagination li {
 }
 /*profile-widget color bg*/
 .profile-widget-info{
-    background: #404040 !important;
+    background: #818181 !important;
 }
 .profile-widget-success{
     background: #4cd964 !important;
@@ -3842,6 +3842,22 @@ ul.amounts li {
 .progress-sm {
     height: 12px;
 }
+
+
+/**
+ * Progress bars with centered text
+ */
+
+.progress {
+    position: relative;
+}
+
+.progress span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    color: black;
+ }
 
 .panel-heading .nav {
     border: medium none;
