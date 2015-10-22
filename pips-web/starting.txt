@@ -1,0 +1,11 @@
+ Git Commit instructions:
+git add .
+git commit -m ""
+git push orgin master
+git push heroku master
+
+ Start from project folder:
+to run server: "npm start"
+in cmd type: "pm2 start pm2.json"
+to stop:
+pm2 kill
