@@ -52,13 +52,51 @@ app.use(express.static(path.join(__dirname, 'public')));
 //routes
 var home = require('./routes/home');
 var users = require('./routes/users');
+var aboutus = require('./routes/aboutus');
+var catalogueevents = require('./routes/catalogueevents');
+var cataloguegroups = require('./routes/cataloguegroups');
+var catalogueprojects = require('./routes/catalogueprojects');
+var createaccount = require('./routes/createaccount');
 var createproject = require('./routes/createproject');
+var createprofile = require('./routes/createprofile');
+var createevent = require('./routes/createevent');
+var creategroup = require('./routes/creategroup');
+var editevent = require('./routes/editevent');
+var editgroup = require('./routes/editgroup');
 var submitresume = require('./routes/submitresume');
+var submitIPA = require('./routes/submitIPA');
+var submitsuggestion = require('./routes/submitsuggestion');
+var event = require('./routes/event');
+var login = require('./routes/login');
+var profile = require('./routes/profile');
+var project = require('./routes/project');
+var viewalltags = require('./routes/viewalltags');
+var viewtagged = require('./routes/viewtagged');
 
+//using routes
 app.use('/', home);
 app.use('/routes/users', users);
-app.use('/createproject', createproject);
-app.use('/submitresume', submitresume);
+app.use('/create', createproject);
+app.use('/submit', submitresume);
+app.use('/aboutus', aboutus);
+app.use('/catalogueevents', catalogueevents);
+app.use('/cataloguegroups', cataloguegroups);
+app.use('/catalogueprojects', catalogueprojects);
+app.use('/createaccount', createaccount);
+app.use('/createproject', createproject)
+app.use('/createprofile', createprofile);
+app.use('/createevent', createevent);
+app.use('/creategroup', creategroup);
+app.use('/editevent', editevent);
+app.use('/editgroup', editgroup);
+app.use('/submitIPA', submitIPA);
+app.use('/submitsuggestion', submitsuggestion);
+app.use('/event', event);
+app.use('/login', login);
+app.use('/profile', profile);
+app.use('/project', project);
+app.use('/viewalltags', viewalltags);
+app.use('/viewtagged', viewtagged);
 
 // Disabling x-powered-by
 app.disable('x-powered-by');

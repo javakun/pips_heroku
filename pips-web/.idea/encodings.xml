@@ -16,12 +16,44 @@
     <file url="file://$PROJECT_DIR$/src/config/config.yml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/lib/config.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/lib/environment.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/aboutus.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/catalogueevents.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/cataloguegroups.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/catalogueprojects.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/createaccount.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/createevent.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/creategroup.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/createprofile.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/routes/createproject.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/editevent.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/editgroup.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/event.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/routes/home.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/login.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/profile.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/project.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/submitIPA.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/routes/submitresume.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/submitsuggestion.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/viewalltags.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/routes/viewtagged.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/stylus/style.styl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/aboutus/aboutus.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/catalogue/CatalogueGroups.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/create/CreateAccountPage.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/create/CreateGroupPage.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/create/CreateProfile.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/create/CreateProjectPage.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/edit/EditEvent.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/edit/EditGroup.hbs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/views/home/welcome.hbs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/views/layouts/main.hbs" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/views/submitresume/SubmitResumePage.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/page/EventPage.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/page/LoginPage.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/submit/SubmitIPA.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/submit/SubmitResumePage.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/submit/SubmitSuggestions.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/view/ViewAllTags.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/views/view/ViewTagged.hbs" charset="UTF-8" />
   </component>
 </project>

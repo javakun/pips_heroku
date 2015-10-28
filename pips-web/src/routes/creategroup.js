@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET Create Project page. */
+/* GET About Us page. */
 router.get('/', function(req, res, next) {
-  res.render('create/CreateProjectPage', { sitename: 'Create Project' });
+  res.render('create/CreateGroupPage', { sitename: 'Create Group' });
 });
 
 module.exports = router;
