@@ -40,8 +40,8 @@ var stylus = require('stylus');
 app.engine(config().views.engine, exphbs({
   extname: config().views.extension,
   defaultLayout: config().views.layout,
-  layoutsDir: __dirname + '/views/layouts',
-  partialsDir: __dirname + '/views/partials'
+  layoutsDir: __dirname + './scr/views/layouts',
+  partialsDir: __dirname + './scr/views/partials'
 }));
 
 // View engine setup
@@ -75,30 +75,27 @@ var viewtagged = require('./src/routes/viewtagged');
 
 //using routes
 app.use('./src/view/home/', home);
-app.use('/src/view/create/', createproject);
-app.use('/src/view/submit/', submitresume);
-app.use('/src/view/aboutus/', aboutus);
-app.use('/src/view/catalogue/', catalogueevents);
-app.use('/src/view/catalogue/', cataloguegroups);
-app.use('/src/view/catalogue/', catalogueprojects);
-app.use('/src/view/create/', createaccount);
-app.use('/src/view/create/', createproject)
-app.use('/src/view/create/', createprofile);
-app.use('/src/view/create/', createevent);
-app.use('/src/view/create', creategroup);
-app.use('/src/view/edit/', editevent);
-app.use('/src/view/edit/', editgroup);
-app.use('/src/view/submit/', submitIPA);
-app.use('/src/view/submit/', submitsuggestion);
-app.use('/src/view/page/', event);
-app.use('/src/view/page/', login);
-app.use('/src/view/page/', profile);
-app.use('/src/view/page/', project);
-app.use('/src/view/view/', viewalltags);
-app.use('/src/view/view/', viewtagged);
-
-// Disabling x-powered-by
-app.disable('x-powered-by');
+app.use('./src/view/create/', createproject);
+app.use('./src/view/submit/', submitresume);
+app.use('./src/view/aboutus/', aboutus);
+app.use('./src/view/catalogue/', catalogueevents);
+app.use('./src/view/catalogue/', cataloguegroups);
+app.use('./src/view/catalogue/', catalogueprojects);
+app.use('./src/view/create/', createaccount);
+app.use('./src/view/create/', createproject)
+app.use('./src/view/create/', createprofile);
+app.use('./src/view/create/', createevent);
+app.use('./src/view/create', creategroup);
+app.use('./src/view/edit/', editevent);
+app.use('./src/view/edit/', editgroup);
+app.use('./src/view/submit/', submitIPA);
+app.use('./src/view/submit/', submitsuggestion);
+app.use('./src/view/page/', event);
+app.use('./src/view/page/', login);
+app.use('./src/view/page/', profile);
+app.use('./src/view/page/', project);
+app.use('./src/view/view/', viewalltags);
+app.use('./src/view/view/', viewtagged);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
