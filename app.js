@@ -40,14 +40,14 @@ var stylus = require('stylus');
 app.engine(config().views.engine, exphbs({
   extname: config().views.extension,
   defaultLayout: config().views.layout,
-  layoutsDir: __dirname + './scr/views/layouts',
-  partialsDir: __dirname + './scr/views/partials'
+  layoutsDir: path.join(__dirname, './src/views/layouts'),
+  partialsDir: path.join(__dirname, './src/views/partials')
 }));
 
 // View engine setup
-app.set('views', path.join(__dirname, 'src/views'));
+app.set('views', path.join(__dirname, './src/views'));
 app.set('view engine', config().views.engine);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, './src/public')));
 
 //routes
 var home = require('./src/routes/home');
@@ -109,20 +109,22 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
+    // res.render('error', {
+    //   message: err.message,
+    //   error: err
+    // });
+    res.send(err.message);
   });
 }
 
 // production error handler
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+  // res.render('error', {
+  //   message: err.message,
+  //   error: {}
+  // });
+  res.send(err.message);
 });
 
 // Export application or start the server
