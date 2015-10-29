@@ -8,7 +8,7 @@ var path = require('path');
 var app = express();
 
 // Loading Config
-var config = require('./lib/config');
+var config = require('./src/lib/config');
 var nib = require('nib');
 
 // Body Parser
@@ -50,53 +50,52 @@ app.set('view engine', config().views.engine);
 app.use(express.static(path.join(__dirname, 'public')));
 
 //routes
-var home = require('./routes/home');
-var users = require('./routes/users');
-var aboutus = require('./routes/aboutus');
-var catalogueevents = require('./routes/catalogueevents');
-var cataloguegroups = require('./routes/cataloguegroups');
-var catalogueprojects = require('./routes/catalogueprojects');
-var createaccount = require('./routes/createaccount');
-var createproject = require('./routes/createproject');
-var createprofile = require('./routes/createprofile');
-var createevent = require('./routes/createevent');
-var creategroup = require('./routes/creategroup');
-var editevent = require('./routes/editevent');
-var editgroup = require('./routes/editgroup');
-var submitresume = require('./routes/submitresume');
-var submitIPA = require('./routes/submitIPA');
-var submitsuggestion = require('./routes/submitsuggestion');
-var event = require('./routes/event');
-var login = require('./routes/login');
-var profile = require('./routes/profile');
-var project = require('./routes/project');
-var viewalltags = require('./routes/viewalltags');
-var viewtagged = require('./routes/viewtagged');
+var home = require('./src/routes/home');
+var users = require('./src/routes/users');
+var aboutus = require('./src/routes/aboutus');
+var catalogueevents = require('./src/routes/catalogueevents');
+var cataloguegroups = require('./src/routes/cataloguegroups');
+var catalogueprojects = require('./src/routes/catalogueprojects');
+var createaccount = require('./src/routes/createaccount');
+var createproject = require('./src/routes/createproject');
+var createprofile = require('./src/routes/createprofile');
+var createevent = require('./src/routes/createevent');
+var creategroup = require('./src/routes/creategroup');
+var editevent = require('./src/routes/editevent');
+var editgroup = require('./src/routes/editgroup');
+var submitresume = require('./src/routes/submitresume');
+var submitIPA = require('./src/routes/submitIPA');
+var submitsuggestion = require('./src/routes/submitsuggestion');
+var event = require('./src/routes/event');
+var login = require('./src/routes/login');
+var profile = require('./src/routes/profile');
+var project = require('./src/routes/project');
+var viewalltags = require('./src/routes/viewalltags');
+var viewtagged = require('./src/routes/viewtagged');
 
 //using routes
-app.use('/', home);
-app.use('/routes/users', users);
-app.use('/create', createproject);
-app.use('/submit', submitresume);
-app.use('/aboutus', aboutus);
-app.use('/catalogueevents', catalogueevents);
-app.use('/cataloguegroups', cataloguegroups);
-app.use('/catalogueprojects', catalogueprojects);
-app.use('/createaccount', createaccount);
-app.use('/createproject', createproject)
-app.use('/createprofile', createprofile);
-app.use('/createevent', createevent);
-app.use('/creategroup', creategroup);
-app.use('/editevent', editevent);
-app.use('/editgroup', editgroup);
-app.use('/submitIPA', submitIPA);
-app.use('/submitsuggestion', submitsuggestion);
-app.use('/event', event);
-app.use('/login', login);
-app.use('/profile', profile);
-app.use('/project', project);
-app.use('/viewalltags', viewalltags);
-app.use('/viewtagged', viewtagged);
+app.use('./src/view/home/', home);
+app.use('/src/view/create/', createproject);
+app.use('/src/view/submit/', submitresume);
+app.use('/src/view/aboutus/', aboutus);
+app.use('/src/view/catalogue/', catalogueevents);
+app.use('/src/view/catalogue/', cataloguegroups);
+app.use('/src/view/catalogue/', catalogueprojects);
+app.use('/src/view/create/', createaccount);
+app.use('/src/view/create/', createproject)
+app.use('/src/view/create/', createprofile);
+app.use('/src/view/create/', createevent);
+app.use('/src/view/create', creategroup);
+app.use('/src/view/edit/', editevent);
+app.use('/src/view/edit/', editgroup);
+app.use('/src/view/submit/', submitIPA);
+app.use('/src/view/submit/', submitsuggestion);
+app.use('/src/view/page/', event);
+app.use('/src/view/page/', login);
+app.use('/src/view/page/', profile);
+app.use('/src/view/page/', project);
+app.use('/src/view/view/', viewalltags);
+app.use('/src/view/view/', viewtagged);
 
 // Disabling x-powered-by
 app.disable('x-powered-by');
