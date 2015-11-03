@@ -74,7 +74,7 @@ var viewalltags = require('./src/routes/viewalltags');
 var viewtagged = require('./src/routes/viewtagged');
 
 //using routes
-app.use('/', home);
+app.use('/', login);
 app.use('/users', users);
 app.use('/create', createproject);
 app.use('/submit', submitresume);

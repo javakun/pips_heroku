@@ -1,4 +1,4 @@
-@media (max-width: 1200px) {
+@media (max-width: 1350px) {
     .navbar-header {
         float: none;
     }
@@ -35,11 +35,14 @@
         display:block !important;
     }
     
-    .navbar .pull-right {
+    .navbar .pull-left {
         float: left !important;
     }
-    
+    .navbar .pull-right {
+        float: right !important;
+    }
     .navbar .pull-right #lg {
         width: 350px;
     }
+    
 }
