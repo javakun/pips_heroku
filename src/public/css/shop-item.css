@@ -1,0 +1,55 @@
+/*!
+ * Start Bootstrap - Shop Item HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+ @import url(line-icons.css);
+ 
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+/*ck editor*/
+
+.cke_top, .cke_bottom {
+    background: #F5F5F5 !important;
+    background: -moz-linear-gradient(center top , #F5F5F5, #F5F5F5) repeat scroll 0 0 #F5F5F5 !important;
+    background: -webkit-linear-gradient(center top , #F5F5F5, #F5F5F5) repeat scroll 0 0 #F5F5F5 !important;
+    background: -o-linear-gradient(center top , #F5F5F5, #F5F5F5) repeat scroll 0 0 #F5F5F5 !important;
+    box-shadow: none;
+    padding: 6px 8px 2px;
+}
+
+.cke_top {
+    border-bottom: 1px solid #cccccc !important;
+}
+
+.cke_chrome {
+    border: 1px solid #cccccc !important;
+    box-shadow: none !important;
+    display: block;
+    padding: 0;
+}
