@@ -4,18 +4,18 @@
         <meta charset="utf-8"/>
         <title>PIPS</title>
         <!-- Bootstrap Core CSS -->
-        <link href="./css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="/css/bootstrap.min.css" rel="stylesheet"/>
         <!-- bootstrap theme -->
-        <link href="./css/bootstrap-theme.css" rel="stylesheet"/>
+        <link href="/css/bootstrap-theme.css" rel="stylesheet"/>
         <!-- Custom CSS -->
-        <link href="./css/shop-item.css" rel="stylesheet"/>
+        <link href="/css/shop-item.css" rel="stylesheet"/>
         <!--external css-->
         <!-- font icon -->
-        <link href="./css/elegant-icons-style.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link href="/css/elegant-icons-style.css" rel="stylesheet" />
+        <link href="/css/font-awesome.min.css" rel="stylesheet" />
         <!-- Custom styles -->
-        <link href="./css/style.css" rel="stylesheet"/>
-        <link href="./css/style-responsive.css" rel="stylesheet" />
+        <link href="/css/style.css" rel="stylesheet"/>
+        <link href="/css/style-responsive.css" rel="stylesheet" />
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
         <!--[if lt IE 9]>
         <script src="/js/html5shiv.js"></script>
@@ -23,45 +23,45 @@
         <script src="/js/lte-ie7.js"></script>
         <![endif]-->
         <!-- Fix NavBar -->
-        <link rel="stylesheet" href="./css/navbarfix.css"/>
+        <link rel="stylesheet" href="/css/navbarfix.css"/>
         <!-- ck editor -->
-        <script src="./ckeditor/ckeditor.js"></script>
+        <script src="../src/assets/ckeditor/ckeditor.js"></script>
         <!-- javascripts -->
-        <script src="./js/jquery.js"></script>
-        <script src="./js/bootstrap.min.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <!-- nice scroll -->
-        <script src="./js/jquery.scrollTo.min.js"></script>
-        <script src="./js/jquery.nicescroll.js" type="text/javascript"></script>
+        <script src="js/jquery.scrollTo.min.js"></script>
+        <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
 
         <!-- jquery ui -->
-        <script src="./js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
 
         <!--custom checkbox & radio-->
-        <script type="text/javascript" src="./js/ga.js"></script>
+        <script type="text/javascript" src="js/ga.js"></script>
         <!--custom switch-->
-        <script src="./js/bootstrap-switch.js"></script>
+        <script src="js/bootstrap-switch.js"></script>
         <!--custom tagsinput-->
-        <script src="./js/jquery.tagsinput.js"></script>
+        <script src="js/jquery.tagsinput.js"></script>
 
         <!-- colorpicker -->
 
         <!-- bootstrap-wysiwyg -->
-        <script src="./js/jquery.hotkeys.js"></script>
-        <script src="./js/bootstrap-wysiwyg.js"></script>
-        <script src="./js/bootstrap-wysiwyg-custom.js"></script>
+        <script src="js/jquery.hotkeys.js"></script>
+        <script src="js/bootstrap-wysiwyg.js"></script>
+        <script src="js/bootstrap-wysiwyg-custom.js"></script>
         <!-- ck editor -->
-        <script type="text/javascript" src="./ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
         <!-- custom form component script for this page-->
-        <script src="./js/form-component.js"></script>
+        <script src="js/form-component.js"></script>
         <!-- custome script for all page -->
-        <script src="./js/scripts.js"></script>
+        <script src="js/scripts.js"></script>
     </head>
 
     <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color: black;">
-        <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color: black;" ">
+        <div class="container" >
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -71,37 +71,43 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="navbar-brand" style="padding: 8px 15px; ">
-                    <img src=".\img\12048903_10153709165902375_2021103471_n.jpg" style="width: 40px;"></div>
+                    <img src="img/12048903_10153709165902375_2021103471_n.jpg" style="width: 40px;"></div>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                   <li>
-            <a href="#"><i class="fa fa-home"></i> Home</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-user"></i> Profile</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-users"></i> Followers</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-briefcase"></i> Projects</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-beer"></i> Groups</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-calendar"></i> Events</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa fa-tags"></i> Tags</a>
-          </li>
-          <li>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Profile</a>
+                    </li>
+                    <li>
+                        <a href="#">Followers</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Interests</a>
+                    </li>
+                    <li>
+                        <a href="#">Groups</a>
+                    </li>
+                    <li>
+                        <a href="#">Events</a>
+                    </li>
+                    <li>
+                        <a href="/submitresume">Community</a>
+                    </li>
+                    <li>
+                        <a href="/createproject">Projects</a>
+                    </li>
+                    <li>
+                        <a href="/aboutus">About PIPS</a>
+                    </li>
                 </ul>
                 <li class="pull-right" style="vertical-align: middle; display: table-cell; margin: 13px;">
                     <div id="search">
-                        <a href="" <i class="fa fa-search fa-lg"></i> </a>
+                        <a href="" class="glyphicon glyphicon-search" style="font-size: 25px;"></a>
                     </div>
                 </li>
                 <li class="pull-right" style="vertical-align: middle; display: table-cell; margin: 10px;">

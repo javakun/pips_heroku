@@ -7,13 +7,14 @@
 
 <p><b>Frameworks & IDEs:</b><br>Client-Side Framework: Angular.js<br>Server-Side Framework: Node.js<br>DBMS Technology: PostgreSQL <br>IDE: Webstorm</p>
 <p><b>Heroku Hosted Hello World:</b>https://pips-heroku-project.herokuapp.com/</p>
-<h3>Retrospective Analysis: Sprint 3 </h3>
-<p><b>What worked well? </b> <br></br></p>
-<p><b>What didn't work well? </b> <br> </br></p>
-<p><b>What we learned? </b> <br> </br><p> 
-<h3>Sprint 4 Planning:</h3> 
+<h3>Retrospective Analysis: Sprint 2 </h3>
+<p><b>What worked well? </b> <br> Bootstrap libraries aided the development of our front end resources. </br></p>
+<p><b>What didn't work well? </b> <br> Certain user interface designs went through many iterations and as they were being developed, the need arose for other interfaces to provide content. Some aspects of developing elements using bootstrap libraries proved troublesome.</br></p>
+<p><b>What we learned? </b> <br> The Team gained a good grasp on front-end development techniques and design elements thanks to course material from ICOM 4009-Intro to Software Engineering . </br><p> 
+<h3>Sprint 3 Planning:</h3> 
 <ol>
-<li>Host working project on Heroku cloud.</li>
-<li>Connect Account Creation & Login Screen to database.</li>
+<li>Revision of user interfaces for greater consistency.</li>
+<li>Review user interfaces and database schema to check for consistency or missing elements.</li>
+<li>Begin connecting web-application to database.</li>
 </ol>
 </br></p> 
