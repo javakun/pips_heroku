@@ -9,7 +9,7 @@ production: &default
     layout: main
   html:
     minify: true
-    css:
+    css: 
       compress: true
       stylusPrecompile: true
   controllers:
