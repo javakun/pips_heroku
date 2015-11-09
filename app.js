@@ -50,7 +50,7 @@ app.set('view engine', config().views.engine);
 app.use(express.static(path.join(__dirname, './src/public')));
 
 //routes
-var home = require('./src/routes/home');
+
 var users = require('./src/routes/users');
 var aboutus = require('./src/routes/aboutus');
 var catalogueevents = require('./src/routes/catalogueevents');
