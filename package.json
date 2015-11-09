@@ -13,7 +13,6 @@
     "express-handlebars": "latest",
     "lodash": "latest",
     "morgan": "~1.6.1",
-    "stylus": "latest",
     "nib": "latest",
     "js-yaml": "latest"
   },
