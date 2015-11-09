@@ -14,7 +14,8 @@
     "lodash": "latest",
     "morgan": "~1.6.1",
     "nib": "latest",
-    "js-yaml": "latest"
+    "js-yaml": "latest",
+    "pg":"latest"
   },
   "devDependencies": {
     "bower": "latest",
