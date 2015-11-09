@@ -50,12 +50,12 @@ app.set('view engine', config().views.engine);
 app.use(express.static(path.join(__dirname, './src/public')));
 
 //routes
-
 var users = require('./src/routes/users');
 var aboutus = require('./src/routes/aboutus');
 var catalogueevents = require('./src/routes/catalogueevents');
 var cataloguegroups = require('./src/routes/cataloguegroups');
 var catalogueprojects = require('./src/routes/catalogueprojects');
+var cataloguefollowers = require('.src/routes/cataloguefollowers');
 var createaccount = require('./src/routes/createaccount');
 var createproject = require('./src/routes/createproject');
 var createprofile = require('./src/routes/createprofile');
@@ -82,6 +82,7 @@ app.use('/aboutus', aboutus);
 app.use('/catalogueevents', catalogueevents);
 app.use('/cataloguegroups', cataloguegroups);
 app.use('/catalogueprojects', catalogueprojects);
+app.use('/cataloguefollowers', cataloguefollowers);
 app.use('/createaccount', createaccount);
 app.use('/createproject', createproject)
 app.use('/createprofile', createprofile);
