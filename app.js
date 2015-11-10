@@ -33,9 +33,6 @@ app.use(cookieParser());
 var exphbs = require('express-handlebars');
 //var hbsHelpers = require('./lib/helpers/handlebars');
 
-// Stylus setup
-var stylus = require('stylus');
-
 // Handlebars setup
 app.engine(config().views.engine, exphbs({
   extname: config().views.extension,
