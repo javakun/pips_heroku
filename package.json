@@ -11,11 +11,11 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "express-handlebars": "latest",
+    "js-yaml": "latest",
     "lodash": "latest",
     "morgan": "~1.6.1",
     "nib": "latest",
-    "js-yaml": "latest",
-    "pg":"latest"
+    "pg": "^4.4.3"
   },
   "devDependencies": {
     "bower": "latest",
