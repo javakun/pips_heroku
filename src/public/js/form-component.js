@@ -68,7 +68,6 @@ var Script = function () {
 
 
     //color picker
-
     $('.cp1').colorpicker({
         format: 'hex'
     });
@@ -76,7 +75,6 @@ var Script = function () {
 
 
     //date picker
-
     if (top.location != location) {
         top.location.href = document.location.href ;
     }
