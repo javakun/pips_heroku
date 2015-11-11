@@ -6,7 +6,7 @@ var tagList = require('./tags.json');
 router.get('/', function(req, res, next) {
   res.render('view/ViewAllTags', { 
     sitename: 'Tags', 
-    tags : tagList
+    tagslist : tagList
     });
 });
 
