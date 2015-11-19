@@ -133,49 +133,14 @@ if (!!module.parent) {
   app.listen(config().serverPort);
 }
 
-var pg = require('pg');
-var client = new pg.Client({
-  user: "ipznqcmmcmdvtq",
-  password: "au3qPIwR9qT3XPwAYCJuszzCSw",
-  database: "dgek9pf0b67pu",
-  port: 5432,
-  host: "ec2-54-163-228-188.compute-1.amazonaws.com",
-  ssl: true
-});
-client.connect();
-
-//var query = client.query("SELECT * FROM users WHERE user_id = '1'");
-//fired after last row is emitted
-
-//query.on('row', function(row) {
-//  if(row.user_email == 'javier.colon15@upr.edu'){
-//    if(row.user_password == 'qwerty'){
-//      id = row.user_id;
-//      console.log(id);
-//    }
-//  }
-//  console.log(id);
-//  console.log(row);
+//var pg = require('pg');
+//var client = new pg.Client({
+//  user: "ipznqcmmcmdvtq",
+//  password: "au3qPIwR9qT3XPwAYCJuszzCSw",
+//  database: "dgek9pf0b67pu",
+//  port: 5432,
+//  host: "ec2-54-163-228-188.compute-1.amazonaws.com",
+//  ssl: true
 //});
-//query.on('end', function() {
-//  client.end();
-//});
+//client.connect();
 
-var app = angular.module('app', []);
-app.controller('appCtrl', function($http, $scope){
-  var app = this;
-  var pg = require('pg');
-  var client = new pg.Client({
-    user: "ipznqcmmcmdvtq",
-    password: "au3qPIwR9qT3XPwAYCJuszzCSw",
-    database: "dgek9pf0b67pu",
-    port: 5432,
-    host: "ec2-54-163-228-188.compute-1.amazonaws.com",
-    ssl: true
-  });
-  client.connect();
-  console.log(row);
-  query.on('end', function() {
-    client.end();
-  });
-});
