@@ -5,8 +5,10 @@ var id;
 var express = require('express');
 var path = require('path');
 
+
 // Initializing express application
 var app = express();
+
 
 // Loading Config
 var config = require('./src/lib/config');
@@ -98,7 +100,7 @@ app.use('/viewalltags', viewalltags);
 app.use('/viewtagged', viewtagged);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
@@ -106,23 +108,23 @@ app.use(function(req, res, next) {
 
 // error handlers
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+  app.use(function (err, req, res, next) {
     res.status(err.status || 500);
-     res.render('error', {
-       message: err.message,
-       error: err
-     });
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
     res.send(err.message);
   });
 }
 
 // production error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   res.status(err.status || 500);
-   res.render('error', {
+  res.render('error', {
     message: err.message,
-     error: {}
-   });
+    error: {}
+  });
   res.send(err.message);
 });
 
@@ -133,6 +135,7 @@ if (!!module.parent) {
   app.listen(config().serverPort);
 }
 
+<<<<<<< HEAD
 //var pg = require('pg');
 //var client = new pg.Client({
 //  user: "ipznqcmmcmdvtq",
@@ -144,3 +147,31 @@ if (!!module.parent) {
 //});
 //client.connect();
 
+=======
+var pg = require('pg');
+var client = new pg.Client({
+  user: "ipznqcmmcmdvtq",
+  password: "au3qPIwR9qT3XPwAYCJuszzCSw",
+  database: "dgek9pf0b67pu",
+  port: 5432,
+  host: "ec2-54-163-228-188.compute-1.amazonaws.com",
+  ssl: true
+});
+client.connect();
+
+//var query = client.query("SELECT * FROM users WHERE user_id = '1'");
+
+//query.on('row', function(row) {
+//  if(row.user_email == 'javier.colon15@upr.edu'){
+//    if(row.user_password == 'qwerty'){
+//      id = row.user_id;
+//      console.log(id);
+//    }
+//  }
+//  console.log(id);
+//  console.log(row);
+//});
+//query.on('end', function() {
+//  client.end();
+//});
+>>>>>>> 4391ae060603bf11efca218c33ec2b035fb4880e

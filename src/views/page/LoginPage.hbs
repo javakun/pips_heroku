@@ -1,4 +1,17 @@
 <body class="login-img3-body">
+<script>
+    angular.module('loginModule', [])
+            .controller('loginController', ['$scope', function($scope) {
+                $scope.Username = {
+                    text: 'sample text',
+                    word: /^\s*\w*\s*$/
+                };
+                $scope.Password = {
+                    text: 'password',
+                    word: /^\s*\w*\s*$/
+                };
+            }]);
+</script>
   <div class="container">
     <br></br>
     <form ng-controller="loginController"  class="login-form" action="profile">
@@ -27,17 +40,4 @@
       </div>
     </form>
   </div>
-<script>
-    angular.module('loginModule', [])
-            .controller('loginController', ['$scope', function($scope) {
-                $scope.Username = {
-                    text: 'sample text',
-                    word: /^\s*\w*\s*$/
-                };
-                $scope.Password = {
-                    text: 'password',
-                    word: /^\s*\w*\s*$/
-                };
-            }]);
-</script>
 </body>

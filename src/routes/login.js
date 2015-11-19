@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+<<<<<<< HEAD
 var LoginTest = require('./LoginTest.json');
 var pg = require('pg');
 var id, user_name, user_password;
@@ -25,6 +26,8 @@ var query = client.query("SELECT * FROM users WHERE user_id = '1'");
     console.log(id);
     console.log(row);
   });
+=======
+>>>>>>> 4391ae060603bf11efca218c33ec2b035fb4880e
 
 query.on('end', function() {
   client.end();
@@ -34,11 +37,16 @@ router.get('/', function(req, res) {
   res.render('page/LoginPage',{
     layout: 'Loginlayout',
     sitename: 'Login',
+<<<<<<< HEAD
     test: LoginTest,
     id: id,
     user_name: user_name,
     user_password: user_password
   });
+=======
+   
+     });
+>>>>>>> 4391ae060603bf11efca218c33ec2b035fb4880e
 });
 
 module.exports = router;
