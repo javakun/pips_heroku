@@ -135,7 +135,6 @@ if (!!module.parent) {
   app.listen(config().serverPort);
 }
 
-<<<<<<< HEAD
 //var pg = require('pg');
 //var client = new pg.Client({
 //  user: "ipznqcmmcmdvtq",
@@ -146,8 +145,6 @@ if (!!module.parent) {
 //  ssl: true
 //});
 //client.connect();
-
-=======
 var pg = require('pg');
 var client = new pg.Client({
   user: "ipznqcmmcmdvtq",
@@ -174,4 +171,3 @@ client.connect();
 //query.on('end', function() {
 //  client.end();
 //});
->>>>>>> 4391ae060603bf11efca218c33ec2b035fb4880e
