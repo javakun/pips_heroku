@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET About Us page. */
 router.get('/', function(req, res, next) {
-  res.render('submit/SubmitIPA', { sitename: 'Submit IPA' });
+  res.render('submit/SubmitIPA.html', { sitename: 'Submit IPA' });
 });
 
 module.exports = router;

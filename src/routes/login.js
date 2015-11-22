@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var LoginTest = require('./LoginTest.json');
 var pg = require('pg');
 var id, user_name, user_password;
 var client = new pg.Client({
@@ -31,10 +30,8 @@ query.on('end', function() {
 });
 /* GET About Us page. */
 router.get('/', function(req, res) {
-  res.render('page/LoginPage',{
-    layout: 'Loginlayout',
+  res.render('page/LoginPage.html',{
     sitename: 'Login',
-    test: LoginTest,
     id: id,
     user_name: user_name,
     user_password: user_password

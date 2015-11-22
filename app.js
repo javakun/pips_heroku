@@ -10,10 +10,6 @@ var path = require('path');
 var app = express();
 
 
-// Loading Config
-var config = require('./src/lib/config');
-var nib = require('nib');
-
 // Body Parser
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -32,26 +28,14 @@ var cookieParser = require('cookie-parser');
 app.use(cookieParser());
 //app.use(session);
 
-// Layout setup
-var exphbs = require('express-handlebars');
-//var hbsHelpers = require('./lib/helpers/handlebars');
-
-// Handlebars setup
-app.engine(config().views.engine, exphbs({
-  extname: config().views.extension,
-  defaultLayout: config().views.layout,
-  layoutsDir: path.join(__dirname, './src/views/layouts'),
-  partialsDir: path.join(__dirname, './src/views/partials')
-}));
-
 // View engine setup
 app.set('views', path.join(__dirname, './src/views'));
-app.set('view engine', config().views.engine);
+app.engine('html', require('ejs').renderFile);
 app.use(express.static(path.join(__dirname, './src/public')));
+
 
 //routes
 var users = require('./src/routes/users');
-var aboutus = require('./src/routes/aboutus');
 var catalogueevents = require('./src/routes/catalogueevents');
 var cataloguegroups = require('./src/routes/cataloguegroups');
 var catalogueprojects = require('./src/routes/catalogueprojects');
@@ -78,7 +62,6 @@ app.use('/', login);
 app.use('/users', users);
 app.use('/create', createproject);
 app.use('/submit', submitresume);
-app.use('/aboutus', aboutus);
 app.use('/catalogueevents', catalogueevents);
 app.use('/cataloguegroups', cataloguegroups);
 app.use('/catalogueprojects', catalogueprojects);
@@ -135,16 +118,6 @@ if (!!module.parent) {
   app.listen(config().serverPort);
 }
 
-//var pg = require('pg');
-//var client = new pg.Client({
-//  user: "ipznqcmmcmdvtq",
-//  password: "au3qPIwR9qT3XPwAYCJuszzCSw",
-//  database: "dgek9pf0b67pu",
-//  port: 5432,
-//  host: "ec2-54-163-228-188.compute-1.amazonaws.com",
-//  ssl: true
-//});
-//client.connect();
 var pg = require('pg');
 var client = new pg.Client({
   user: "ipznqcmmcmdvtq",

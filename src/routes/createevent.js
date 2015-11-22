@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET About Us page. */
 router.get('/', function(req, res, next) {
-  res.render('create/CreateEventPage', { sitename: 'Create Event' });
+  res.render('create/CreateEventPage.html', { sitename: 'Create Event' });
 });
 
 module.exports = router;
