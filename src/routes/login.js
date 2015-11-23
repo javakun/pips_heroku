@@ -11,30 +11,28 @@ var client = new pg.Client({
   ssl: true
 });
 client.connect();
-var query = client.query("SELECT * FROM users WHERE user_id = '1'");
-  query.on('row', function(row) {
-    if(row.user_email == 'javier.colon15@upr.edu'){
-      if(row.user_password == 'qwerty'){
-        id = row.user_id;
-        user_name = row.user_email;
-        user_password = row.user_password;
-        console.log(id);
-      }
-    }
-    console.log(id);
-    console.log(row);
-  });
+//var query = client.query("SELECT * FROM users WHERE user_id = '1'");
+//query.on('row', function(row) {
+//    if(row.user_email == 'javier.colon15@upr.edu'){
+//        if(row.user_password == 'qwerty'){
+//            id = row.user_id;
+//            user_name = row.user_email;
+//            user_password = row.user_password;
+//            console.log(id);
+//        }
+//    }
+//    console.log(id);
+//    console.log(row);
+//});
+//
+//query.on('end', function() {
+//    client.end();
+//});
 
-query.on('end', function() {
-  client.end();
-});
 /* GET About Us page. */
 router.get('/', function(req, res) {
   res.render('page/LoginPage.html',{
-    sitename: 'Login',
-    id: id,
-    user_name: user_name,
-    user_password: user_password
+    sitename: 'Login'
   });
 });
 
