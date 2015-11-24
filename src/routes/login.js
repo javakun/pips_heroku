@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 var pg = require('pg');
 var id, user_name, user_password;
 var client = new pg.Client({
@@ -30,6 +31,7 @@ client.connect();
 //});
 
 /* GET About Us page. */
+
 router.get('/', function(req, res) {
   res.render('page/LoginPage.html',{
     sitename: 'Login'
@@ -37,3 +39,4 @@ router.get('/', function(req, res) {
 });
 
 module.exports = router;
+ 
