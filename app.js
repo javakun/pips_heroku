@@ -33,8 +33,8 @@ app.set('views', path.join(__dirname, './src/views'));
 app.engine('html', require('ejs').renderFile);
 app.use(express.static(path.join(__dirname, './src/public')));
 
-
 //routes
+var api = require('./src/routes/api');
 var users = require('./src/routes/users');
 var catalogueevents = require('./src/routes/catalogueevents');
 var cataloguegroups = require('./src/routes/cataloguegroups');
@@ -81,35 +81,15 @@ app.use('/profile', profile);
 app.use('/project', project);
 app.use('/viewalltags', viewalltags);
 app.use('/viewtagged', viewtagged);
+//app.get('/', routes.index);
+//app.get('/partials/:name', routes.partials);
 
-//// catch 404 and forward to error handler
-//app.use(function (req, res, next) {
-//  var err = new Error('Not Found');
-//  err.status = 404;
-//  next(err);
-//});
-//
-//// error handlers
-//if (app.get('env') === 'development') {
-//  app.use(function (err, req, res, next) {
-//    res.status(err.status || 500);
-//    res.render('error', {
-//      message: err.message,
-//      error: err
-//    });
-//    res.send(err.message);
-//  });
-//}
-//
-//// production error handler
-//app.use(function (err, req, res, next) {
-//  res.status(err.status || 500);
-//  res.render('error', {
-//    message: err.message,
-//    error: {}
-//  });
-//  res.send(err.message);
-//});
+// JSON API
+app.get('/api/posts', api.posts);
+app.get('/api/post/:id', api.post);
+app.post('/api/post', api.addPost);
+app.put('/api/post/:id', api.editPost);
+app.delete('/api/post/:id', api.deletePost);
 
 // Export application or start the server
 if (!!module.parent) {
