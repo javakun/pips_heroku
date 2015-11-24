@@ -9,11 +9,18 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
         .then(
         function(){
 
+<<<<<<< HEAD
         });
 }]);
 function login_click(){
+=======
+
+function login_click() {
+
+>>>>>>> fbaaee174dc6d068efd7571e62be6d7e55453532
     var usrName = $('#Username').val();
     var usrPass = $('#Password').val();
-    alert('username: ' + usrName + '\nPassword: ' + usrPass);
+    
+    //alert('username: ' + usrName + '\nPassword: ' + usrPass);
 };
 

@@ -63,16 +63,17 @@
 <body class="login-img3-body">
   <div class="container">
     <br></br>
-    <form class="login-form" action="profile">
+    <form  class="login-form" action="profile">
       <div class="login-wrap">
         <div>
-          <p><b>Sign-Up or Login(fix): </p>
+          <p><b>Sign-Up or Login: </p>
           <script src="js/LoginPage.js"></script>
           <hr>
         </div>
+        
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-user"></i></span>
-          <input type="text" class="form-control" placeholder="Username"  id="Username" autofocus>
+          <input  type="text" class="form-control" placeholder="Username"  id="Username" autofocus>
 
         </div>
         <div class="input-group">
@@ -84,7 +85,7 @@
           <input type="checkbox" value="remember-me"> Remember me
           <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
         </label>
-        <button  class="btn btn-primary btn-lg btn-block" onclick="login_click()">Login</button>
+        <button  class="btn btn-primary btn-lg btn-block"  type="submit" onclick="login_click()">Login</button>
         <a href="createaccount" class="btn btn-info btn-lg btn-block" >Signup</a>
       </div>
     </form>

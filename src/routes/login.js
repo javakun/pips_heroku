@@ -11,6 +11,18 @@ var router = express.Router();
 //  ssl: true
 //});
 //client.connect();
+
+//var pg = require('pg');
+//var id, user_name, user_password;
+//var client = new pg.Client({
+//  user: "ipznqcmmcmdvtq",
+//  password: "au3qPIwR9qT3XPwAYCJuszzCSw",
+//  database: "dgek9pf0b67pu",
+//  port: 5432,
+//  host: "ec2-54-163-228-188.compute-1.amazonaws.com",
+//  ssl: true
+//});
+//client.connect();
 //var query = client.query("SELECT * FROM users WHERE user_id = '1'");
 //query.on('row', function(row) {
 //    if(row.user_email == 'javier.colon15@upr.edu'){
@@ -30,6 +42,7 @@ var router = express.Router();
 //});
 
 /* GET About Us page. */
+
 router.get('/', function(req, res) {
   res.render('page/LoginPage.html',{
     sitename: 'Login'
@@ -37,3 +50,4 @@ router.get('/', function(req, res) {
 });
 
 module.exports = router;
+ 
