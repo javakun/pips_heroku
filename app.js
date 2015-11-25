@@ -31,7 +31,7 @@ app.set('views', path.join(__dirname, './src/views'));
 app.engine('html', require('ejs').renderFile);
 app.use(express.static(path.join(__dirname, './src/public')));
 
-<<<<<<< HEAD
+
 // Session Setup
 app.use(session({
   resave: false,
@@ -39,8 +39,7 @@ app.use(session({
   secret: 'PIPS'
 }));
 
-=======
->>>>>>> b145a3215cc65ddda501478e3ab394902aa9d3f6
+
 //routes
 var api = require('./src/routes/api');
 var users = require('./src/routes/users');
@@ -89,7 +88,7 @@ app.use('/profile', profile);
 app.use('/project', project);
 app.use('/viewalltags', viewalltags);
 app.use('/viewtagged', viewtagged);
-<<<<<<< HEAD
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -117,17 +116,7 @@ app.use(function (err, req, res, next) {
    error: {}
  });
 });
-=======
-//app.get('/', routes.index);
-//app.get('/partials/:name', routes.partials);
 
-// JSON API
-app.get('/api/posts', api.posts);
-app.get('/api/post/:id', api.post);
-app.post('/api/post', api.addPost);
-app.put('/api/post/:id', api.editPost);
-app.delete('/api/post/:id', api.deletePost);
->>>>>>> b145a3215cc65ddda501478e3ab394902aa9d3f6
 
 // Export application or start the server
 if (!!module.parent) {
