@@ -5,9 +5,11 @@ var router = express.Router();
 var client = require('../../db').getClient()
 
 //Method to post account information into DB
-router.post('/', function(req, res, next) {
-  
-  
+router.post('/createAcc', function(req, res, next) {
+  var User_ID = client.query("SELECT COUNT(*) FROM users") + 1;
+  var User_Email = req.body.Email;
+  var User_Password = req.body.Password;
+  client.query("INSERT INTO users VALUES($1, $2, $3)", [User_ID, User_Email, User_Password]);
 });
 
 /* GET About Us page. */

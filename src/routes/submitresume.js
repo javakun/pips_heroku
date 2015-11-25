@@ -8,8 +8,8 @@ var client = require('../../db').getClient()
 router.post('/submitR', function (req, res) {
   var User_ID = req.session.user.id;
   var Resume_Body = req.body.editor1;
-  var row_c = client.query("SELECT COUNT(*) FROM resume");
-  client.query("INSERT INTO resume VALUES($1, $2, $3)",[row_c + 1,Resume_Body,User_ID]);
+  var row_c = client.query("SELECT COUNT(*) FROM resume") + 1;
+  client.query("INSERT INTO resume VALUES($1, $2, $3)",[row_c,Resume_Body,User_ID]);
 });
 
 /* GET Submit Resume page. */
