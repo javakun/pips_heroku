@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <title>PIPS</title>
+  <script type="text/javascript" src="ejs_production.js"></script>
   <!-- Bootstrap Core CSS -->
   <link href="/css/bootstrap.min.css" rel="stylesheet" />
   <!-- bootstrap theme -->
@@ -359,7 +360,7 @@
                                 </div>
                               </div>
                             </div>
-                            <% for(var i= 0; i < posts.length ; i++) {%>
+                            <%{%>
                               <div class="act-time">
                                 <div class="activity-body act-in">
                                   <span class="arrow"></span>
@@ -371,7 +372,7 @@
                                       </a>
                                     </p>
                                     <p>
-                                      <%= posts[i].content %>
+                                     <%=  profile_name %> 
                                     </p>
                                   </div>
                                 </div>
