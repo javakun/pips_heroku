@@ -41,7 +41,6 @@ app.use(session({
 
 
 //routes
-var api = require('./src/routes/api');
 var users = require('./src/routes/users');
 var catalogueevents = require('./src/routes/catalogueevents');
 var cataloguegroups = require('./src/routes/cataloguegroups');

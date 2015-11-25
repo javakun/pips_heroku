@@ -38,7 +38,8 @@ router.post('/', function (req, res) {
     } else {
       res.redirect('/');
     }
-
+  });
+});
 
 /* GET About Us page. */
 

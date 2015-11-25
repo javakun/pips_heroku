@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var client = require('../../db').getClient()
 var resume,noti_desc,noti_title,noti_link,noti_id;
+
 /* GET About Us page. */
 router.get('/', function(req, res, next) {
    // Method to query information from different tables to fill the profile.

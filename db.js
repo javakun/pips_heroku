@@ -4,8 +4,6 @@
 
 var pg = require('pg');
 var client;
-
-
 module.exports.getClient = function () {
   if (client) {
     return client;
