@@ -31,7 +31,8 @@ router.post('/', function (req, res) {
       //  user_password = row.user_password;
       req.session.user = {
         username: User_Name,
-        id: row.user_id
+        id: row.user_id,
+        user_email: row.user_email
       };
 
       res.redirect('/profile');

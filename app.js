@@ -63,30 +63,35 @@ var project = require('./src/routes/project');
 var viewalltags = require('./src/routes/viewalltags');
 var viewtagged = require('./src/routes/viewtagged');
 
+function restrict(req, res, next) {
+  if (req.session.user) next();
+  
+  res.redirect('/');
+}
+
 //using routes
 app.use('/', login);
-app.use('/users', users);
-app.use('/create', createproject);
-app.use('/submit', submitresume);
-app.use('/catalogueevents', catalogueevents);
-app.use('/cataloguegroups', cataloguegroups);
-app.use('/catalogueprojects', catalogueprojects);
-app.use('/cataloguefollowers', cataloguefollowers);
+app.use('/users', restrict, users);
+app.use('/create',restrict, createproject);
+app.use('/submit', restrict, submitresume);
+app.use('/catalogueevents',restrict, catalogueevents);
+app.use('/cataloguegroups',restrict, cataloguegroups);
+app.use('/catalogueprojects',restrict, catalogueprojects);
+app.use('/cataloguefollowers',restrict, cataloguefollowers);
 app.use('/createaccount', createaccount);
-app.use('/createproject', createproject)
-app.use('/createprofile', createprofile);
-app.use('/createevent', createevent);
-app.use('/creategroup', creategroup);
-app.use('/editevent', editevent);
-app.use('/editgroup', editgroup);
-app.use('/submitIPA', submitIPA);
-app.use('/submitsuggestion', submitsuggestion);
-app.use('/event', event);
-app.use('/login', login);
-app.use('/profile', profile);
-app.use('/project', project);
-app.use('/viewalltags', viewalltags);
-app.use('/viewtagged', viewtagged);
+app.use('/createproject',restrict, createproject)
+app.use('/createprofile',restrict, createprofile);
+app.use('/createevent',restrict, createevent);
+app.use('/creategroup',restrict, creategroup);
+app.use('/editevent',restrict, editevent);
+app.use('/editgroup',restrict, editgroup);
+app.use('/submitIPA',restrict, submitIPA);
+app.use('/submitsuggestion',restrict, submitsuggestion);
+app.use('/event',restrict, event);
+app.use('/profile',restrict, profile);
+app.use('/project',restrict, project);
+app.use('/viewalltags',restrict, viewalltags);
+app.use('/viewtagged',restrict, viewtagged);
 
 
 // catch 404 and forward to error handler
