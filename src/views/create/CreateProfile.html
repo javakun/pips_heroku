@@ -208,59 +208,29 @@
                   <section class="panel">
                     <div class="panel-body bio-graph-info">
                       <h1> Profile Info</h1>
-                      <form class="form-horizontal" role="form">
+                      <form method="POST" class="form-horizontal" role="form" action="/createP">
                         <div class="form-group">
-                          <label class="col-lg-2 control-label">First Name</label>
+                          <label class="col-lg-2 control-label">Name</label>
                           <div class="col-lg-6">
-                            <input type="text" class="form-control" id="f-name" placeholder=" ">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-lg-2 control-label">Last Name</label>
-                          <div class="col-lg-6">
-                            <input type="text" class="form-control" id="l-name" placeholder=" ">
+                            <input type="text" class="form-control" id="name" name="Name" placeholder=" ">
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="col-lg-2 control-label">About Me</label>
                           <div class="col-lg-10">
-                            <textarea name="" id="" class="form-control" cols="30" rows="5"></textarea>
+                            <textarea name="Description" id="abt_me" class="form-control" cols="30" rows="5"></textarea>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label">Age</label>
+                          <div class="col-lg-6">
+                            <input type="number" class="form-control" min="0" max="3" id="b-day" name="Age" placeholder=" ">
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Country</label>
                           <div class="col-lg-6">
-                            <input type="text" class="form-control" id="c-name" placeholder=" ">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-lg-2 control-label">Birthday</label>
-                          <div class="col-lg-6">
-                            <input type="text" class="form-control" id="b-day" placeholder=" ">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-lg-2 control-label">Occupation</label>
-                          <div class="col-lg-6">
-                            <input type="text" class="form-control" id="occupation" placeholder=" ">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-lg-2 control-label">Email</label>
-                          <div class="col-lg-6">
-                            <input type="text" class="form-control" id="email" placeholder=" ">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-lg-2 control-label">Mobile</label>
-                          <div class="col-lg-6">
-                            <input type="text" class="form-control" id="mobile" placeholder=" ">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-lg-2 control-label">Website URL</label>
-                          <div class="col-lg-6">
-                            <input type="text" class="form-control" id="url" placeholder="http://www.demowebsite.com ">
+                            <input type="text" class="form-control" id="country" name="Country" placeholder=" ">
                           </div>
                         </div>
                         <div class="form-group">
@@ -280,8 +250,6 @@
     </main>
     <!--main content end-->
     </div>
-
     <!-- container section end -->
 </body>
-
 </html>
