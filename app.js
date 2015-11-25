@@ -65,61 +65,52 @@ var viewtagged = require('./src/routes/viewtagged');
 
 function restrict(req, res, next) {
   if (req.session.user) next();
-  
-  res.redirect('/');
+  else {
+    res.redirect('/');
+  }
 }
 
 //using routes
 app.use('/', login);
 app.use('/users', restrict, users);
-app.use('/create',restrict, createproject);
+app.use('/create', restrict, createproject);
 app.use('/submit', restrict, submitresume);
-app.use('/catalogueevents',restrict, catalogueevents);
-app.use('/cataloguegroups',restrict, cataloguegroups);
-app.use('/catalogueprojects',restrict, catalogueprojects);
-app.use('/cataloguefollowers',restrict, cataloguefollowers);
+app.use('/catalogueevents', restrict, catalogueevents);
+app.use('/cataloguegroups', restrict, cataloguegroups);
+app.use('/catalogueprojects', restrict, catalogueprojects);
+app.use('/cataloguefollowers', restrict, cataloguefollowers);
 app.use('/createaccount', createaccount);
-app.use('/createproject',restrict, createproject)
-app.use('/createprofile',restrict, createprofile);
-app.use('/createevent',restrict, createevent);
-app.use('/creategroup',restrict, creategroup);
-app.use('/editevent',restrict, editevent);
-app.use('/editgroup',restrict, editgroup);
-app.use('/submitIPA',restrict, submitIPA);
-app.use('/submitsuggestion',restrict, submitsuggestion);
-app.use('/event',restrict, event);
+app.use('/createproject', restrict, createproject)
+app.use('/createprofile', restrict, createprofile);
+app.use('/createevent', restrict, createevent);
+app.use('/creategroup', restrict, creategroup);
+app.use('/editevent', restrict, editevent);
+app.use('/editgroup', restrict, editgroup);
+app.use('/submitIPA', restrict, submitIPA);
+app.use('/submitsuggestion', restrict, submitsuggestion);
+app.use('/event', restrict, event);
 app.use('/profile',restrict, profile);
-app.use('/project',restrict, project);
-app.use('/viewalltags',restrict, viewalltags);
-app.use('/viewtagged',restrict, viewtagged);
+app.use('/project', restrict, project);
+app.use('/viewalltags', restrict, viewalltags);
+app.use('/viewtagged', restrict, viewtagged);
 
 
-// // catch 404 and forward to error handler
-// app.use(function (req, res, next) {
-//  var err = new Error('Not Found');
-//  err.status = 404;
-//  next(err);
-// });
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
-// // error handlers
-// if (app.get('env') === 'development') {
-//  app.use(function (err, req, res, next) {
-//    res.status(err.status || 500);
-//    res.send({
-//      message: err.message,
-//      error: err
-//    });
-//  });
-// }
 
-// // production error handler
-// app.use(function (err, req, res, next) {
-//  res.status(err.status || 500);
-//  res.send({
-//    message: err.message,
-//    error: {}
-//  });
-// });
+// production error handler
+app.use(function (err, req, res, next) {
+  res.status(err.status || 500);
+  res.send({
+    message: err.message,
+    error: {}
+  });
+});
 
 
 // Export application or start the server

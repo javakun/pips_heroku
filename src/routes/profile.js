@@ -8,7 +8,7 @@ router.get('/', function (req, res) {
       
        var result = {};
    
-      client.query("SELECT * FROM post WHERE post.user_id = $1", [req.session.user.id], selectPost)
+      client.query("SELECT * FROM post WHERE post.user_id = $1", [req.session.user.id], selectPost);
 
       function selectPost(err, results) {
             result.posts = results.rows.map(function (post) {
@@ -20,7 +20,7 @@ router.get('/', function (req, res) {
 
             client.query("SELECT * FROM notifications WHERE notifications.user_id = $1",
                   [req.session.user.id],
-                  selectNotifications)
+                  selectNotifications);
       }
 
       function selectNotifications(err, results) {
@@ -34,31 +34,34 @@ router.get('/', function (req, res) {
                   }
             });
                     
-            client.query("SELECT * FROM resume WHERE resume.user_id = $1 ", [req.session.user.id],selectResume);
+            client.query("SELECT * FROM resume WHERE resume.user_id = $1 ", 
+            [req.session.user.id],selectResume);
                    
       }
 
-      function selectResume(err, result) {
-            result.resume = result.rows[0];
+      function selectResume(err, results) {
+            result.resume = results.rows[0];
 
-            client.query("SELECT * FROM profile WHERE profile.profile_id = $1", [req.session.user.id],displayData);
+            client.query("SELECT * FROM profile WHERE profile.profile_id = $1", 
+            [req.session.user.id],displayData);
       }
 
-      function displayData(err,result) {
-            if (result.rows[0]) {
-                  // res.render('page/ProfilePage.html', { 
-                  //       //information to be used for template filling
-                  //       sitename: req.session.user.username,
-                  //       user_email: req.session.user.user_email,
-                  //       profile_name: row.profile_name,
-                  //       profile_age: row.profile_age,
-                  //       profile_desc: row.profile_desc,
-                  //       profile_country: row.profile_country,
-                  //       //profile_resume: result.resume,
-                  //       // notification: result.notifications,
-                  //       // posts: result.posts
-                  // })
-                  res.send('test');
+      function displayData(err,results) {
+            if (results.rows[0]) {
+                  res.render('page/ProfilePage.html', { 
+                        //information to be used for template filling
+                        sitename: req.session.user.username,
+                        user_email: req.session.user.user_email,
+                        profile_name: results.rows[0].profile_name,
+                        profile_age: results.rows[0].profile_age,
+                        profile_desc: results.rows[0].profile_desc,
+                        profile_country: results.rows[0].profile_country,
+                        profile_resume: result.resume,
+                        notification: result.notifications,
+                        posts: result.posts,
+                        //posts_content:result.posts.content
+                  })
+                 // res.send('test');
                   
             } else {
                   res.redirect('/createprofile')

@@ -42,13 +42,6 @@ router.post('/', function (req, res) {
   });
 });
 
-/* GET About Us page. */
-
-router.get('/', function(req, res) {
-  res.render('page/LoginPage.html',{
-    sitename: 'Login'
-  });
-})
 
 //method to logout and end session
 router.post('/logout', function (req, res) {
