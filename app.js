@@ -4,7 +4,7 @@ var id;
 // Loading dependencies
 var express = require('express');
 var path = require('path');
-
+var session = require('express-session');
 
 // Initializing express application
 var app = express();
@@ -23,16 +23,20 @@ app.use(logger('dev'));
 
 // Cookies / Session
 var cookieParser = require('cookie-parser');
-//var session = require('./lib/helpers/session');
 
 app.use(cookieParser());
-//app.use(session);
 
 // View engine setup
 app.set('views', path.join(__dirname, './src/views'));
 app.engine('html', require('ejs').renderFile);
 app.use(express.static(path.join(__dirname, './src/public')));
 
+// Session Setup
+app.use(session({
+  resave: false,
+  saveUninitialized: false,
+  secret: 'PIPS'
+}));
 
 //routes
 var users = require('./src/routes/users');
@@ -82,34 +86,32 @@ app.use('/project', project);
 app.use('/viewalltags', viewalltags);
 app.use('/viewtagged', viewtagged);
 
-//// catch 404 and forward to error handler
-//app.use(function (req, res, next) {
-//  var err = new Error('Not Found');
-//  err.status = 404;
-//  next(err);
-//});
-//
-//// error handlers
-//if (app.get('env') === 'development') {
-//  app.use(function (err, req, res, next) {
-//    res.status(err.status || 500);
-//    res.render('error', {
-//      message: err.message,
-//      error: err
-//    });
-//    res.send(err.message);
-//  });
-//}
-//
-//// production error handler
-//app.use(function (err, req, res, next) {
-//  res.status(err.status || 500);
-//  res.render('error', {
-//    message: err.message,
-//    error: {}
-//  });
-//  res.send(err.message);
-//});
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+ var err = new Error('Not Found');
+ err.status = 404;
+ next(err);
+});
+
+// error handlers
+if (app.get('env') === 'development') {
+ app.use(function (err, req, res, next) {
+   res.status(err.status || 500);
+   res.send({
+     message: err.message,
+     error: err
+   });
+ });
+}
+
+// production error handler
+app.use(function (err, req, res, next) {
+ res.status(err.status || 500);
+ res.send({
+   message: err.message,
+   error: {}
+ });
+});
 
 // Export application or start the server
 if (!!module.parent) {
@@ -117,30 +119,3 @@ if (!!module.parent) {
 } else {
   app.listen(config().serverPort);
 }
-
-var pg = require('pg');
-var client = new pg.Client({
-  user: "ipznqcmmcmdvtq",
-  password: "au3qPIwR9qT3XPwAYCJuszzCSw",
-  database: "dgek9pf0b67pu",
-  port: 5432,
-  host: "ec2-54-163-228-188.compute-1.amazonaws.com",
-  ssl: true
-});
-client.connect();
-
-//var query = client.query("SELECT * FROM users WHERE user_id = '1'");
-
-//query.on('row', function(row) {
-//  if(row.user_email == 'javier.colon15@upr.edu'){
-//    if(row.user_password == 'qwerty'){
-//      id = row.user_id;
-//      console.log(id);
-//    }
-//  }
-//  console.log(id);
-//  console.log(row);
-//});
-//query.on('end', function() {
-//  client.end();
-//});

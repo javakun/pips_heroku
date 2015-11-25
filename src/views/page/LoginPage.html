@@ -63,22 +63,21 @@
 <body class="login-img3-body">
   <div class="container">
     <br></br>
-    <form  class="login-form" action="profile">
+    <form  method="POST" class="login-form" action="/">
       <div class="login-wrap">
         <div>
           <p><b>Sign-Up or Login: </p>
-          <script src="js/LoginPage.js"></script>
           <hr>
         </div>
         
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-user"></i></span>
-          <input  type="text" class="form-control" placeholder="Username"  id="Username" autofocus>
+          <input  type="text" class="form-control" placeholder="Username"  name="Username" autofocus>
 
         </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-key"></i></span>
-          <input type="password" class="form-control"  placeholder="Password" id="Password">
+          <input type="password" class="form-control"  placeholder="Password" name="Password">
 
         </div>
         <label class="checkbox">
