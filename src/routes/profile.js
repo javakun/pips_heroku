@@ -6,8 +6,8 @@ var client = require('../../db').getClient()
 router.get('/', function (req, res) {
       // Method to query information from different tables to fill the profile.
       
-       var result = {};
-   
+      var result = {};
+
       client.query("SELECT * FROM post WHERE post.user_id = $1", [req.session.user.id], selectPost);
 
       function selectPost(err, results) {
@@ -24,29 +24,29 @@ router.get('/', function (req, res) {
       }
 
       function selectNotifications(err, results) {
-            
+
             result.notifications = results.rows.map(function (notification) {
                   return {
-                      id: notification.noti_id,
-                      description: notification.noti_description,
-                      title: notification.noti_title,
-                      link: notification.noti_link
+                        id: notification.noti_id,
+                        description: notification.noti_description,
+                        title: notification.noti_title,
+                        link: notification.noti_link
                   }
             });
-                    
-            client.query("SELECT * FROM resume WHERE resume.user_id = $1 ", 
-            [req.session.user.id],selectResume);
-                   
+
+            client.query("SELECT * FROM resume WHERE resume.user_id = $1 ",
+                  [req.session.user.id], selectResume);
+
       }
 
       function selectResume(err, results) {
             result.resume = results.rows[0];
 
-            client.query("SELECT * FROM profile WHERE profile.profile_id = $1", 
-            [req.session.user.id],displayData);
+            client.query("SELECT * FROM profile WHERE profile.profile_id = $1",
+                  [req.session.user.id], displayData);
       }
 
-      function displayData(err,results) {
+      function displayData(err, results) {
             if (results.rows[0]) {
                   res.render('page/ProfilePage.html', { 
                         //information to be used for template filling
@@ -59,10 +59,10 @@ router.get('/', function (req, res) {
                         profile_resume: result.resume,
                         notification: result.notifications,
                         posts: result.posts,
-                        //posts_content:result.posts.content
+
                   })
-                 // res.send('test');
-                  
+
+
             } else {
                   res.redirect('/createprofile')
             }
@@ -70,4 +70,24 @@ router.get('/', function (req, res) {
 
 });
 
+//Method to post post information into DB
+router.post('/postinfo', function (req, res) {
+
+      var post_id;
+      client.query("SELECT post_id FROM post ORDER BY post_id DESC LIMIT 1", postID);
+      function postID(err, results) {
+
+            post_id = results.rows[0].post_id;
+            post_id = post_id + 1;
+            var post_title = req.body.post_title;
+            var post_content = req.body.post_content;
+            var post_tags = req.body.post_tags;
+            
+            client.query("INSERT INTO post VALUES($1, $2, $3, $4)", [post_id, post_content, req.session.user.id, post_tags]);
+      }
+});
+
+router.get('/postinfo', function (req, res) {
+      res.redirect('/profile');
+});
 module.exports = router;

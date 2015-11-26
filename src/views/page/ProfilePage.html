@@ -308,7 +308,6 @@
                       <div class="tab-content">
                         <div id="recent-activity" class="tab-pane active">
                           <div class="profile-activity">
-                            <div class="col-lg-12 portlets">
                               <div class="panel panel-default">
                                 <div class="panel-heading">
                                   <div class="pull-left">Quick Post</div>
@@ -321,27 +320,26 @@
                                 <div class="panel-body">
                                   <div class="padd">
                                     <div class="form quick-post">
-                                      <!-- Edit profile form (not working)-->
-                                      <form class="form-horizontal">
+                                      <form method="POST" class="form-horizontal" action="/profile/postinfo">
                                         <!-- Title -->
                                         <div class="form-group">
                                           <label class="control-label col-lg-2" for="title">Title</label>
                                           <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="title">
+                                            <input type="text" class="form-control" name="post_title" >
                                           </div>
                                         </div>
                                         <!-- Content -->
                                         <div class="form-group">
                                           <label class="control-label col-lg-2" for="content">Content</label>
                                           <div class="col-lg-10">
-                                            <textarea class="form-control" id="content"></textarea>
+                                            <textarea class="form-control" name="post_content" ></textarea>
                                           </div>
                                         </div>
                                         <!-- Tags -->
                                         <div class="form-group">
                                           <label class="col-lg-2 control-label">Event Tags</label>
                                           <div class="col-lg-10">
-                                            <input name="tagsinput" id="tagsinput" class="tagsinput" value="Programming, Robotics" />
+                                            <input   name="post_tags" class="tagsinput"  />
                                           </div>
                                         </div>
                                         <!-- Buttons -->
@@ -356,9 +354,9 @@
                                     </div>
                                   </div>
                                 </div>
-                              </div>
+                             
                             </div>
-                            <% for(var i=0;i< 5; i++) {%>
+                            <% for(var i= posts.length ; i> posts[0].id  ; i--) {%>
                               <div class="act-time">
                                 <div class="activity-body act-in">
                                   <span class="arrow"></span>
@@ -370,7 +368,7 @@
                                       </a>
                                     </p>
                                     <p>
-                                      <%= posts[0].content  %>
+                                      <%= posts[i-1].content  %>
                                     </p>
                                   </div>
                                 </div>
