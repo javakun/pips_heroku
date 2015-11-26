@@ -14,7 +14,8 @@ router.get('/', function (req, res) {
             result.posts = results.rows.map(function (post) {
                   return {
                         id: post.post_id,
-                        content: post.post_content
+                        content: post.post_content,
+                        tags:post.post_tags
                   }
             })
 
@@ -83,7 +84,8 @@ router.post('/postinfo', function (req, res) {
             var post_content = req.body.post_content;
             var post_tags = req.body.post_tags;
             
-            client.query("INSERT INTO post VALUES($1, $2, $3, $4)", [post_id, post_content, req.session.user.id, post_tags]);
+            client.query("INSERT INTO post VALUES($1, $2, $3, $4)", 
+            [post_id, post_content, req.session.user.id, post_tags]);
       }
 });
 
