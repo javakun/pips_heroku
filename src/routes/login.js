@@ -30,7 +30,6 @@ router.post('/', function (req, res) {
         id: row.user_id,
         user_email: row.user_email
       };
-      client.end();
       res.redirect('/profile');
     } else {
       res.redirect('/');

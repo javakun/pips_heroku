@@ -51,7 +51,7 @@ router.get('/', function (req, res) {
             if (results.rows[0]) {
                   if (result.posts.length == 0) {
                         result.posts = null;
-                        client.end();
+                        
                         res.render('page/ProfilePage.html', { 
                               //information to be used for template filling
                               sitename: req.session.user.username,
@@ -66,7 +66,7 @@ router.get('/', function (req, res) {
 
                         })
                   } else {
-                        client.end();
+                        
                         res.render('page/ProfilePage.html', { 
                               //information to be used for template filling
                               sitename: req.session.user.username,
@@ -103,7 +103,7 @@ router.post('/postinfo', function (req, res) {
 
             client.query("INSERT INTO post VALUES($1, $2, $3, $4)",
                   [post_id, post_content, req.session.user.id, post_tags]);
-            client.end();
+            
       }
 });
 
@@ -126,14 +126,13 @@ router.post('/updatebioinfo', function (req, res) {
             client.query("DELETE FROM users WHERE users.user_id = $1",
                   [req.session.user.id], DelAccount);
             function DelAccount(err, results) {
-                  client.end();
+                  
                   req.session.user = null;
                   res.redirect('/');
             }
       } else {
             client.query("UPDATE profile SET profile_name= $1, profile_desc = $2, profile_country = $3, profile_age = $4 WHERE profile.profile_id = $5",
-                  [profile_name, profile_desc, profile_country, profile_age, req.session.user.id]);
-            client.end();
+                  [profile_name, profile_desc, profile_country, profile_age, req.session.user.id]);   
       }
 });
 
