@@ -119,7 +119,7 @@ router.post('/updatebioinfo', function (req, res) {
       var profile_country = req.body.profile_country;
       var profile_age = req.body.profile_age;
       var deleteaccount = 0;
-      deleteaccount = req.body.deleteaccount.value;
+     // deleteaccount = req.body.deleteaccount.value;
 
 
       if (deleteaccount != 0) {

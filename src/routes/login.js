@@ -19,22 +19,26 @@ router.get('/', function (req, res) {
 
 //Method to validate Login info with db
 router.post('/', function (req, res) {
-  var User_Pass = req.body.Password;
-  var User_Name = req.body.Username;
-  var query = client.query("SELECT * FROM users WHERE user_email= $1",[User_Name]);
 
-  query.on('row', function (row) {
-    if (row.user_email == User_Name && row.user_password == User_Pass) {
-      req.session.user = {
-        username: User_Name,
-        id: row.user_id,
-        user_email: row.user_email
-      };
-      res.redirect('/profile');
-    } else {
-      res.redirect('/');
-    }
-  });
+    var User_Pass = req.body.Password;
+    var User_Name = req.body.Username;
+    var query = client.query("SELECT * FROM users WHERE user_email= $1", [User_Name]);
+
+    query.on('row', function (row) {
+      if (row.user_email == User_Name && row.user_password == User_Pass) {
+        req.session.user = {
+          username: User_Name,
+          id: row.user_id,
+          user_email: row.user_email
+        };
+        res.redirect('/profile');
+        
+      } else {
+        res.redirect('/');
+        
+      }
+    });
+  
 });
 
 
