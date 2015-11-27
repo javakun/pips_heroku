@@ -17,6 +17,7 @@ module.exports.getClient = function () {
       ssl: true
     });
     client.connect();
+    //client.end();
     return client;
   }
 }

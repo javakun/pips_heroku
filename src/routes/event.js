@@ -13,8 +13,8 @@ router.get('/', function (req, res) {
         result.events = results.rows.map(function (event) {
               return {
                 id: event.event_id,
-                name: event.event_name,
-                location: event.event_loc,
+                event_name: event.event_name,
+                event_location: event.event_loc,
                 date: event.event_date,
                 description: event.event_description,
                 admin: event.admin_id,
@@ -29,7 +29,7 @@ router.get('/', function (req, res) {
   }
 
   function displayData(err, results) {
-      res.render('catalogue/CatalogueEvents.html', {
+      res.render('page/EventsPage.html', {
         //information to be used for template filling
         sitename: 'Events',
         events: results.events

@@ -15,7 +15,7 @@ router.get('/', function (req, res) {
                   return {
                         id: post.post_id,
                         content: post.post_content,
-                        tags:post.post_tags
+                        tags: post.post_tags
                   }
             })
 
@@ -49,21 +49,38 @@ router.get('/', function (req, res) {
 
       function displayData(err, results) {
             if (results.rows[0]) {
-                  res.render('page/ProfilePage.html', { 
-                        //information to be used for template filling
-                        sitename: req.session.user.username,
-                        user_email: req.session.user.user_email,
-                        profile_name: results.rows[0].profile_name,
-                        profile_age: results.rows[0].profile_age,
-                        profile_desc: results.rows[0].profile_desc,
-                        profile_country: results.rows[0].profile_country,
-                        profile_resume: result.resume,
-                        notification: result.notifications,
-                        posts: result.posts,
+                  if (result.posts.length == 0) {
+                        result.posts = null;
+                        client.end();
+                        res.render('page/ProfilePage.html', { 
+                              //information to be used for template filling
+                              sitename: req.session.user.username,
+                              user_email: req.session.user.user_email,
+                              profile_name: results.rows[0].profile_name,
+                              profile_age: results.rows[0].profile_age,
+                              profile_desc: results.rows[0].profile_desc,
+                              profile_country: results.rows[0].profile_country,
+                              // profile_resume: result.resume,
+                              notification: result.notifications,
+                              posts: result.posts
 
-                  })
+                        })
+                  } else {
+                        client.end();
+                        res.render('page/ProfilePage.html', { 
+                              //information to be used for template filling
+                              sitename: req.session.user.username,
+                              user_email: req.session.user.user_email,
+                              profile_name: results.rows[0].profile_name,
+                              profile_age: results.rows[0].profile_age,
+                              profile_desc: results.rows[0].profile_desc,
+                              profile_country: results.rows[0].profile_country,
+                              profile_resume: result.resume,
+                              notification: result.notifications,
+                              posts: result.posts
 
-
+                        })
+                  }
             } else {
                   res.redirect('/createprofile')
             }
@@ -83,13 +100,46 @@ router.post('/postinfo', function (req, res) {
             var post_title = req.body.post_title;
             var post_content = req.body.post_content;
             var post_tags = req.body.post_tags;
-            
-            client.query("INSERT INTO post VALUES($1, $2, $3, $4)", 
-            [post_id, post_content, req.session.user.id, post_tags]);
+
+            client.query("INSERT INTO post VALUES($1, $2, $3, $4)",
+                  [post_id, post_content, req.session.user.id, post_tags]);
+            client.end();
       }
 });
 
 router.get('/postinfo', function (req, res) {
       res.redirect('/profile');
 });
+
+//Method to post post information into DB
+router.post('/updatebioinfo', function (req, res) {
+
+      var profile_name = req.body.profile_name;
+      var profile_desc = req.body.profile_desc;
+      var profile_country = req.body.profile_country;
+      var profile_age = req.body.profile_age;
+      var deleteaccount = 0;
+      deleteaccount = req.body.deleteaccount.value;
+
+
+      if (deleteaccount != 0) {
+            client.query("DELETE FROM users WHERE users.user_id = $1",
+                  [req.session.user.id], DelAccount);
+            function DelAccount(err, results) {
+                  client.end();
+                  req.session.user = null;
+                  res.redirect('/');
+            }
+      } else {
+            client.query("UPDATE profile SET profile_name= $1, profile_desc = $2, profile_country = $3, profile_age = $4 WHERE profile.profile_id = $5",
+                  [profile_name, profile_desc, profile_country, profile_age, req.session.user.id]);
+            client.end();
+      }
+});
+
+router.get('/updatebioinfo', function (req, res) {
+      res.redirect('/profile');
+});
+
+
 module.exports = router;

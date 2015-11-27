@@ -11,13 +11,24 @@ router.post('/createP', function (req, res, next) {
   var Profile_Age = req.body.Age;
   var Profile_Desc = req.body.Description
   var Profile_Country = req.body.Country;
-
-  client.query("INSERT INTO profile VALUES($1, $2, $3, $4, $5, $6)", [Profile_Name, Profile_Id, Profile_Age, null, Profile_Desc, Profile_Country])
+  var post_id;
+  client.query("SELECT post_id FROM post ORDER BY post_id DESC LIMIT 1", create);
+  
+  function create(err, results) {
+    post_id = results.rows[0].post_id;
+    post_id = post_id + 1;
+    client.query("INSERT INTO profile VALUES($1, $2, $3, $4, $5, $6)", [Profile_Name, Profile_Id, Profile_Age, 1, Profile_Desc, Profile_Country])
+    client.query("INSERT INTO post VALUES($1, $2, $3, $4"[post_id,'Welcome to PIPS',req.session.user.id,1]);
+    client.end();
+  }
 });
 
+router.get('/createP', function (req, res) {
+  res.redirect('/profile');
+});
 /* GET About Us page. */
 router.get('/', function (req, res, next) {
-  res.render('create/CreateProfilePage.html', { sitename: 'Create Profile' });
+  res.render('create/CreateProfile.html', { sitename: 'Create Profile' });
 });
 
 module.exports = router;

@@ -117,9 +117,6 @@
               <ul class="dropdown-menu extended logout">
                 <div class="log-arrow-up"></div>
                 <li>
-                  <a href="#"><i class="icon_clock_alt"></i> Account Settings</a>
-                </li>
-                <li>
                   <form action="/logout" method="POST">
                     <button href="#"><i class="icon_key_alt" type="submit"></i> Log Out</button>
                   </form>
@@ -308,53 +305,52 @@
                       <div class="tab-content">
                         <div id="recent-activity" class="tab-pane active">
                           <div class="profile-activity">
-                              <div class="panel panel-default">
-                                <div class="panel-heading">
-                                  <div class="pull-left">Quick Post</div>
-                                  <div class="widget-icons pull-right">
-                                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-                                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
-                                  </div>
-                                  <div class="clearfix"></div>
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <div class="pull-left">Quick Post</div>
+                                <div class="widget-icons pull-right">
+                                  <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+                                  <a href="#" class="wclose"><i class="fa fa-times"></i></a>
                                 </div>
-                                <div class="panel-body">
-                                  <div class="padd">
-                                    <div class="form quick-post">
-                                      <form method="POST" class="form-horizontal" action="/profile/postinfo">
-                                        <!-- Title -->
-                                        <div class="form-group">
-                                          <label class="control-label col-lg-2" for="title">Title</label>
-                                          <div class="col-lg-10">
-                                            <input type="text" class="form-control" name="post_title" >
-                                          </div>
+                                <div class="clearfix"></div>
+                              </div>
+                              <div class="panel-body">
+                                <div class="padd">
+                                  <div class="form quick-post">
+                                    <form method="POST" class="form-horizontal" action="/profile/postinfo">
+                                      <!-- Title -->
+                                      <div class="form-group">
+                                        <label class="control-label col-lg-2" for="title">Title</label>
+                                        <div class="col-lg-10">
+                                          <input type="text" class="form-control" name="post_title">
                                         </div>
-                                        <!-- Content -->
-                                        <div class="form-group">
-                                          <label class="control-label col-lg-2" for="content">Content</label>
-                                          <div class="col-lg-10">
-                                            <textarea class="form-control" name="post_content" ></textarea>
-                                          </div>
+                                      </div>
+                                      <!-- Content -->
+                                      <div class="form-group">
+                                        <label class="control-label col-lg-2" for="content">Content</label>
+                                        <div class="col-lg-10">
+                                          <textarea class="form-control" name="post_content"></textarea>
                                         </div>
-                                        <!-- Tags -->
-                                        <div class="form-group">
-                                          <label class="col-lg-2 control-label">Event Tags</label>
-                                          <div class="col-lg-10">
-                                            <input   name="post_tags" class="tagsinput"  />
-                                          </div>
+                                      </div>
+                                      <!-- Tags -->
+                                      <div class="form-group">
+                                        <label class="col-lg-2 control-label">Event Tags</label>
+                                        <div class="col-lg-10">
+                                          <input name="post_tags" class="tagsinput" />
                                         </div>
+                                      </div>
+                                      <!-- Buttons -->
+                                      <div class="form-group">
                                         <!-- Buttons -->
-                                        <div class="form-group">
-                                          <!-- Buttons -->
-                                          <div class="col-lg-offset-2 col-lg-9">
-                                            <button type="submit" class="btn btn-primary">Post</button>
-                                            <button type="reset" class="btn btn-default">Reset</button>
-                                          </div>
+                                        <div class="col-lg-offset-2 col-lg-9">
+                                          <button type="submit" class="btn btn-primary">Post</button>
+                                          <button type="reset" class="btn btn-default">Reset</button>
                                         </div>
-                                      </form>
-                                    </div>
+                                      </div>
+                                    </form>
                                   </div>
                                 </div>
-                             
+                              </div>
                             </div>
                             <% for(var i= posts.length ; i> posts[0].id  ; i--) {%>
                               <div class="act-time">
@@ -397,7 +393,9 @@
                                   </p>
                                 </div>
                                 <div class="bio-row">
-                                  <p><span>Country: </span> United</p>
+                                  <p><span>Country: </span>
+                                    <%= profile_country %>
+                                  </p>
                                 </div>
                                 <div class="bio-row">
                                   <p><span>Email: </span>
@@ -471,65 +469,36 @@
                           <section class="panel">
                             <div class="panel-body bio-graph-info">
                               <h1> Profile Info</h1>
-                              <form class="form-horizontal" role="form">
+                              <form method="POST" class="form-horizontal" role="form" action="/profile/updatebioinfo">
                                 <div class="form-group">
-                                  <label class="col-lg-2 control-label">First Name</label>
+                                  <label class="col-lg-2 control-label"> Name</label>
                                   <div class="col-lg-6">
-                                    <input type="text" class="form-control" id="f-name" placeholder=" ">
+                                    <input type="text" class="form-control" name="profile_name" placeholder=" ">
                                   </div>
                                 </div>
                                 <div class="form-group">
-                                  <label class="col-lg-2 control-label">Last Name</label>
-                                  <div class="col-lg-6">
-                                    <input type="text" class="form-control" id="l-name" placeholder=" ">
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-lg-2 control-label">About Me</label>
+                                  <label class="col-lg-2 control-label"> Description </label>
                                   <div class="col-lg-10">
-                                    <textarea name="" id="" class="form-control" cols="30" rows="5"></textarea>
+                                    <textarea name="profile_desc" class="form-control" cols="30" rows="5"></textarea>
                                   </div>
                                 </div>
                                 <div class="form-group">
                                   <label class="col-lg-2 control-label">Country</label>
                                   <div class="col-lg-6">
-                                    <input type="text" class="form-control" id="c-name" placeholder=" ">
+                                    <input type="text" class="form-control" name="profile_country" placeholder=" ">
                                   </div>
                                 </div>
                                 <div class="form-group">
-                                  <label class="col-lg-2 control-label">Birthday</label>
+                                  <label class="col-lg-2 control-label">Age</label>
                                   <div class="col-lg-6">
-                                    <input type="text" class="form-control" id="b-day" placeholder=" ">
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-lg-2 control-label">Occupation</label>
-                                  <div class="col-lg-6">
-                                    <input type="text" class="form-control" id="occupation" placeholder=" ">
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-lg-2 control-label">Email</label>
-                                  <div class="col-lg-6">
-                                    <input type="text" class="form-control" id="email" placeholder=" ">
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-lg-2 control-label">Mobile</label>
-                                  <div class="col-lg-6">
-                                    <input type="text" class="form-control" id="mobile" placeholder=" ">
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-lg-2 control-label">Website URL</label>
-                                  <div class="col-lg-6">
-                                    <input type="text" class="form-control" id="url" placeholder="http://www.demowebsite.com ">
+                                    <input type="text" class="form-control" name="profile_age" placeholder=" ">
                                   </div>
                                 </div>
                                 <div class="form-group">
                                   <div class="col-lg-offset-2 col-lg-10">
                                     <button type="submit" class="btn btn-primary">Save</button>
-                                    <button type="button" class="btn btn-danger">Cancel</button>
+                                    <button type="reset" class="btn btn-danger">Cancel</button>
+                                    <button type="reset" name="deleteaccount" value="true" class="btn btn-danger">Delete Account</button>
                                   </div>
                                 </div>
                               </form>

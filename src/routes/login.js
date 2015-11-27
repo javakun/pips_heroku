@@ -21,7 +21,7 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
   var User_Pass = req.body.Password;
   var User_Name = req.body.Username;
-  var query = client.query("SELECT * FROM users WHERE user_email='" + User_Name + "'");
+  var query = client.query("SELECT * FROM users WHERE user_email= $1",[User_Name]);
 
   query.on('row', function (row) {
     if (row.user_email == User_Name && row.user_password == User_Pass) {
@@ -30,7 +30,7 @@ router.post('/', function (req, res) {
         id: row.user_id,
         user_email: row.user_email
       };
-
+      client.end();
       res.redirect('/profile');
     } else {
       res.redirect('/');
