@@ -1,7 +1,5 @@
 var express = require('express');
 var router = express.Router();
-
-//DB CLIENT
 var client = require('../../db').getClient()
 
 //Method to post event information into DB

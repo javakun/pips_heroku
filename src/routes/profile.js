@@ -2,12 +2,9 @@ var express = require('express');
 var router = express.Router();
 var client = require('../../db').getClient();
 
-/* GET About Us page. */
+// Method to query information from different tables to fill the profile.
 router.get('/', function (req, res) {
-      // Method to query information from different tables to fill the profile.
-      
       var result = {};
-
       client.query("SELECT * FROM post WHERE post.user_id = $1", [req.session.user.id], selectPost);
 
       function selectPost(err, results) {
@@ -18,14 +15,11 @@ router.get('/', function (req, res) {
                         tags: post.post_tags
                   }
             })
-
             client.query("SELECT * FROM notifications WHERE notifications.user_id = $1",
                   [req.session.user.id],
                   selectNotifications);
       }
-
       function selectNotifications(err, results) {
-
             result.notifications = results.rows.map(function (notification) {
                   return {
                         id: notification.noti_id,
@@ -34,24 +28,18 @@ router.get('/', function (req, res) {
                         link: notification.noti_link
                   }
             });
-
             client.query("SELECT * FROM resume WHERE resume.user_id = $1 ",
                   [req.session.user.id], selectResume);
-
       }
-
       function selectResume(err, results) {
             result.resume = results.rows[0];
-
             client.query("SELECT * FROM profile WHERE profile.profile_id = $1",
                   [req.session.user.id], displayData);
       }
-
       function displayData(err, results) {
             if (results.rows[0]) {
                   if (result.posts.length == 0) {
                         result.posts = null;
-                        
                         res.render('page/ProfilePage.html', { 
                               //information to be used for template filling
                               sitename: req.session.user.username,
@@ -63,10 +51,9 @@ router.get('/', function (req, res) {
                               // profile_resume: result.resume,
                               notification: result.notifications,
                               posts: result.posts
-
                         })
                   } else {
-                        
+
                         res.render('page/ProfilePage.html', { 
                               //information to be used for template filling
                               sitename: req.session.user.username,
@@ -78,14 +65,12 @@ router.get('/', function (req, res) {
                               profile_resume: result.resume,
                               notification: result.notifications,
                               posts: result.posts
-
                         })
                   }
             } else {
                   res.redirect('/createprofile')
             }
       }
-
 });
 
 //Method to post post information into DB
@@ -103,7 +88,7 @@ router.post('/postinfo', function (req, res) {
 
             client.query("INSERT INTO post VALUES($1, $2, $3, $4)",
                   [post_id, post_content, req.session.user.id, post_tags]);
-            
+
       }
 });
 
@@ -119,20 +104,18 @@ router.post('/updatebioinfo', function (req, res) {
       var profile_country = req.body.profile_country;
       var profile_age = req.body.profile_age;
       var deleteaccount = 0;
-     // deleteaccount = req.body.deleteaccount.value;
-
-
+      // deleteaccount = req.body.deleteaccount.value;
       if (deleteaccount != 0) {
             client.query("DELETE FROM users WHERE users.user_id = $1",
                   [req.session.user.id], DelAccount);
             function DelAccount(err, results) {
-                  
+
                   req.session.user = null;
                   res.redirect('/');
             }
       } else {
             client.query("UPDATE profile SET profile_name= $1, profile_desc = $2, profile_country = $3, profile_age = $4 WHERE profile.profile_id = $5",
-                  [profile_name, profile_desc, profile_country, profile_age, req.session.user.id]);   
+                  [profile_name, profile_desc, profile_country, profile_age, req.session.user.id]);
       }
 });
 

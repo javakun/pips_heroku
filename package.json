@@ -16,7 +16,8 @@
     "lodash": "latest",
     "morgan": "~1.6.1",
     "nib": "latest",
-    "pg": "^4.4.3"
+    "pg": "^4.4.3",
+    "sendgrid": "^1.9.2"
   },
   "devDependencies": {
     "grunt": "latest"
