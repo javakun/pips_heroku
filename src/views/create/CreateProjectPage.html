@@ -207,50 +207,51 @@
                 Project Page Form
               </header>
               <div class="panel-body">
-                <form class="form-horizontal " method="get">
+                <form method="POST" action="/createproject/createPro" class="form-horizontal " method="get">
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Name of Project</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">
+                      <input name="PName" type="text" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Project Owner</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">
+                      <p class="form-control-static"><%= owner_name %></p>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Project Description</label>
                     <div class="col-sm-10">
-                      <textarea rows="10" class="form-control"> </textarea>
-
+                      <textarea name="PDesc" rows="10" class="form-control"> </textarea>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Start Date </label>
                     <div class="col-sm-4">
-                      <input id="cp1" type="text" value="28-10-2013" size="16" class="form-control">
+                      <input  name="PDate" id="cp1" type="text" size="16" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Team Members</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" placeholder="Ex: Javier Colon, Victor Martinez">
+                      <input name="PMembers" type="text" class="form-control" placeholder="Ex: Javier Colon, Victor Martinez">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label"> Project Completion</label>
                     <div class="col-sm-10">
-                      <select class="form-control m-bot15">
+                      <select name="PComp" class="form-control m-bot15">
                         <option>0%</option>
                         <option>10%</option>
                         <option>20%</option>
+                        <option>25%</option>
                         <option>30%</option>
                         <option>40%</option>
                         <option>50%</option>
                         <option>60%</option>
                         <option>70%</option>
+                        <option>75%</option>
                         <option>80%</option>
                         <option>90%</option>
                         <option>100%</option>
@@ -273,7 +274,7 @@
                   <div class="form-group">
                     <label class="col-lg-2 control-label">Project Page Creator Email</label>
                     <div class="col-lg-10">
-                      <p class="form-control-static">john.doe@upr.edu</p>
+                      <p class="form-control-static"><%= owner_email %></p>
                     </div>
                   </div>
 

@@ -212,29 +212,29 @@
                       Group Page Form
                     </header>
                     <div class="panel-body">
-                      <form class="form-horizontal " method="get">
+                      <form method="POST" class="form-horizontal " method="get" action="/creategroup/createG">
                         <div class="form-group">
                           <label class="col-sm-2 control-label">Group Name</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control">
+                            <input name="GName" type="text" class="form-control">
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="col-sm-2 control-label">Group Administrator</label>
                           <div class="col-sm-10">
-                            <p class="form-control-static">john.doe@upr.edu</p>
+                            <p class="form-control-static"><%= admin_name %></p>
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="col-sm-2 control-label">Group Description</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control">
+                            <input name="GDesc" type="text" class="form-control">
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="col-sm-2 control-label">Invite Members</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Ex: Javier Colon, Victor Martinez">
+                            <input name="GMembers" type="text" class="form-control" placeholder="Ex: Javier Colon, Victor Martinez">
                           </div>
                         </div>
                         <div class="form-group">
@@ -253,7 +253,7 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Administrator Email</label>
                           <div class="col-lg-10">
-                            <p class="form-control-static">john.doe@upr.edu</p>
+                            <p class="form-control-static"><%= admin_email %></p>
                           </div>
                         </div>
 
