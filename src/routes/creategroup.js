@@ -17,6 +17,7 @@ router.post('/createG', function (req, res, next) {
     Group_ID = results.row[0].group_id;
     Group_ID = Group_ID + 1;
     client.query("INSERT INTO groups VALUES:($1, $2, $3, $4, $5, $6)",[Group_ID, Group_Name, Group_Desc, Admin_ID, Tag_ID, Member_List]);
+    res.redirect('/group');
   }
 });
 
