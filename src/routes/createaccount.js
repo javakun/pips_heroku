@@ -13,12 +13,9 @@ router.post('/createAcc', function(req, res, next) {
     var User_Email = req.body.Email;
     var User_Password = req.body.Password;
     
-    client.query("INSERT INTO users VALUES($1, $2, $3)",[User_ID, User_Email, User_Password]);
+    client.query("INSERT INTO users VALUES($1, $2, $3);",[User_ID, User_Email, User_Password]);
+    es.redirect('/');
   }
-});
-
-router.get('/createAcc', function (req, res) {
-      res.redirect('/');
 });
 
 

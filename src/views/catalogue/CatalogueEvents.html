@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>PIPS</title>
   <!-- Bootstrap Core CSS -->
   <link href="/css/bootstrap.min.css" rel="stylesheet" />
   <!-- bootstrap theme -->
@@ -56,12 +55,14 @@
   <script src="/js/form-component.js"></script>
   <!-- custome script for all page -->
   <script src="/js/scripts.js"></script>
+
+  <title>PIPS- Event Catalgue</title>
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <nav ng-app="app" ng-controller="MainController" class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color: black;">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color: black;">
     <div class="row no-gutters ">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header ">
@@ -208,18 +209,24 @@
                       <h1><i class="fa fa-calendar"></i>Events</h1>
                       <hr>
                       <form class="form-horizontal" role="form">
-                        <% for(var i=0; i < 1; i++) {%>
+                        <% for(var i=0; i < events.length; i++) {%>
                         <div class="form-group">
                         <div class="col-lg-2">
                           <img src="img/12048798_10153709166102375_1827324476_n.jpg" class="img-thumbnail img-responsive" alt="placeholder" width="100"
                           height="100">
                         </div>
                           <div class="col-lg-5">
+                            <h1><%= events[i].name %></h1>
+                            <p><%= events[i].description %></p>
+                            <label>Event Date:</label>
+                            <label><%= events[i].date %></label>
+                            <label>Event Location:</label>
+                            <label><%= events[i].location %></label>
                             <br></br>
                             <label class="control-label">Tags</label>
-                            <button type="button" class="btn btn-success"><i class="fa fa-tag"></i><%= events[0].name %></button>
-                            <button type="button" class="btn btn-success"><i class="fa fa-tag"></i>Celebrate</button>
-                            <button type="button" class="btn btn-success"><i class="fa fa-tag"></i>GoodTimes</button>
+                            <% for(var j=0; j < events[i].tag_list.length; j++) {%>
+                              <button type="button" class="btn btn-success"><i class="fa fa-tag"></i><%= events[i].tag_list[j] %></button>
+                            <% } %>
                           </div>
                           <div class="col-lg-5" style="margin-top: 2%">
                             <button type="submit" class="btn btn-primary btn pull-right">Request To Join Event</button>
