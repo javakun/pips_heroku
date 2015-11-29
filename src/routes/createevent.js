@@ -22,8 +22,6 @@ router.post('/createEv', function (req, res, next) {
     //arrays must be added directly in the query because of syntax errors (fixable?)
     client.query("INSERT INTO event VALUES($1, $2, $3, $4, $5, $6, '{"+ Event_Members +"}', '{"+ Event_Tags +"}');", [Event_ID, Event_Name, Event_Desc, Event_Date, Event_Loc, Event_Admin]);
     res.redirect('/');
-    //Correct Query Syntax: INSERT INTO event VALUES(7, 'this', 'just', 's', 'test', 2, '{1,2}', '{1}');
-    //client.query("INSERT INTO event VALUES(3, 'this', 'just', 's', 'test', 2, '{1,2}', '{1}')");//, [Event_ID, Event_Name, Event_Desc, Event_Date, Event_Loc, Event_Admin, Event_Members, Event_Tags]);
   }
 });
 
