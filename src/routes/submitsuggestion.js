@@ -21,6 +21,7 @@ router.post('/sendE', function (req, res, next) {
     if (err) { return console.error(err) }
     console.log(json);
   });
+  res.redirect('/submitsuggestion');
 });
 
 /* GET About Us page. */

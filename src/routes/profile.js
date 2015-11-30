@@ -38,35 +38,18 @@ router.get('/', function (req, res) {
       }
       function displayData(err, results) {
             if (results.rows[0]) {
-                  if (result.posts.length == 0) {
-                        result.posts = null;
-                        res.render('page/ProfilePage.html', { 
-                              //information to be used for template filling
-                              sitename: req.session.user.username,
-                              user_email: req.session.user.user_email,
-                              profile_name: results.rows[0].profile_name,
-                              profile_age: results.rows[0].profile_age,
-                              profile_desc: results.rows[0].profile_desc,
-                              profile_country: results.rows[0].profile_country,
-                              // profile_resume: result.resume,
-                              notification: result.notifications,
-                              posts: result.posts
-                        })
-                  } else {
-
-                        res.render('page/ProfilePage.html', { 
-                              //information to be used for template filling
-                              sitename: req.session.user.username,
-                              user_email: req.session.user.user_email,
-                              profile_name: results.rows[0].profile_name,
-                              profile_age: results.rows[0].profile_age,
-                              profile_desc: results.rows[0].profile_desc,
-                              profile_country: results.rows[0].profile_country,
-                              profile_resume: result.resume,
-                              notification: result.notifications,
-                              posts: result.posts
-                        })
-                  }
+                  res.render('page/ProfilePage.html', { 
+                        //information to be used for template filling
+                        sitename: req.session.user.username,
+                        user_email: req.session.user.user_email,
+                        profile_name: results.rows[0].profile_name,
+                        profile_age: results.rows[0].profile_age,
+                        profile_desc: results.rows[0].profile_desc,
+                        profile_country: results.rows[0].profile_country,
+                        profile_resume: result.resume,
+                        notification: result.notifications,
+                        posts: result.posts
+                  })
             } else {
                   res.redirect('/createprofile')
             }
@@ -84,17 +67,13 @@ router.post('/postinfo', function (req, res) {
             post_id = post_id + 1;
             var post_title = req.body.post_title;
             var post_content = req.body.post_content;
-            var post_tags = req.body.post_tags;
 
-            client.query("INSERT INTO post VALUES($1, $2, $3, $4)",
-                  [post_id, post_content, req.session.user.id, post_tags]);
-
+            client.query("INSERT INTO post VALUES($1, $2, $3)",
+                  [post_id, post_content, req.session.user.id]);
+            res.redirect('/profile');
       }
 });
 
-router.get('/postinfo', function (req, res) {
-      res.redirect('/profile');
-});
 
 //Method to post post information into DB
 router.post('/updatebioinfo', function (req, res) {
@@ -116,12 +95,10 @@ router.post('/updatebioinfo', function (req, res) {
       } else {
             client.query("UPDATE profile SET profile_name= $1, profile_desc = $2, profile_country = $3, profile_age = $4 WHERE profile.profile_id = $5",
                   [profile_name, profile_desc, profile_country, profile_age, req.session.user.id]);
+            res.redirect('/profile');
       }
 });
 
-router.get('/updatebioinfo', function (req, res) {
-      res.redirect('/profile');
-});
 
 
 module.exports = router;

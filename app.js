@@ -9,7 +9,7 @@ var session = require('express-session');
 // Initializing express application
 var app = express();
 
-
+var client = require('./db').getClient();
 // Body Parser
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -94,6 +94,21 @@ app.use('/project', restrict, project);
 app.use('/viewalltags', restrict, viewalltags);
 app.use('/viewtagged', restrict, viewtagged);
 
+process.stdin.resume();//so the program will not close instantly
+
+function exitHandler(options, err) {
+    if (err) console.log(err.stack);
+    if (options.exit) client.end();
+}
+
+//do something when app is closing
+process.on('exit', exitHandler.bind(null,{exit:true}));
+
+//catches ctrl+c event
+process.on('SIGINT', exitHandler.bind(null, {exit:true}));
+
+//catches uncaught exceptions
+process.on('uncaughtException', exitHandler.bind(null, {exit:true}));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

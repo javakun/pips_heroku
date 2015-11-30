@@ -332,13 +332,6 @@
                                           <textarea class="form-control" name="post_content"></textarea>
                                         </div>
                                       </div>
-                                      <!-- Tags -->
-                                      <div class="form-group">
-                                        <label class="col-lg-2 control-label">Event Tags</label>
-                                        <div class="col-lg-10">
-                                          <input name="post_tags" class="tagsinput" />
-                                        </div>
-                                      </div>
                                       <!-- Buttons -->
                                       <div class="form-group">
                                         <!-- Buttons -->
@@ -352,7 +345,7 @@
                                 </div>
                               </div>
                             </div>
-                            <% for(var i= posts.length ; i> posts[0].id  ; i--) {%>
+                            <% for(var i= 0 ; i< posts.length ;i++) {%>
                               <div class="act-time">
                                 <div class="activity-body act-in">
                                   <span class="arrow"></span>
@@ -364,7 +357,7 @@
                                       </a>
                                     </p>
                                     <p>
-                                      <%= posts[i-1].content  %>
+                                      <%= posts[(posts.length-i-1)].content  %>
                                     </p>
                                   </div>
                                 </div>

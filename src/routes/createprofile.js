@@ -15,9 +15,11 @@ router.post('/createP', function (req, res, next) {
   function create(err, results) {
     post_id = results.rows[0].post_id;
     post_id = post_id + 1;
+
     client.query("INSERT INTO profile VALUES($1, $2, $3, $4, $5, $6)", [Profile_Name, Profile_Id, Profile_Age, 1, Profile_Desc, Profile_Country]);
-    client.query("INSERT INTO post VALUES($1, $2, $3, $4", [post_id, 'Welcome to PIPS', req.session.user.id, 1]);
+    client.query("INSERT INTO post VALUES($1, $2, $3)", [post_id, 'Welcome to PIPS', req.session.user.id]);
     res.redirect('/profile');
+   
   }
 });
 
