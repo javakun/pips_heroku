@@ -110,7 +110,7 @@
                                 <span class="profile-ava">
                     <img alt="" src="img/avatar1_small.jpg">
               </span>
-                                <span class="username">Jenifer Smith</span>
+                                <span class="username">NAME</span>
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu extended logout">
@@ -199,9 +199,8 @@
                                 <div class="col-lg-12">
                                     <h3 class="page-header"><i class="fa fa-file-text-o"></i> View Tagged</h3>
                                     <ol class="breadcrumb">
-                                        <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-                                        <li><i class="fa fa-users"></i>Tags</li>
-                                        <li><i class="fa fa-file-text-o"></i>View Tagged</li>
+                                        <li><i class="fa fa-tags"></i>Tags</li>
+                                        <li><i class="fa fa-text-o"></i>View Tagged</li>
                                     </ol>
                                 </div>
                             </div>
@@ -221,8 +220,10 @@
                                                             <div class="row">
                                                                 <div class="row">
                                                                     <div class="col-lg-10">
-                                                                        <p>Here you'll find all projects tagged as [tag goes
-                                                                            here]
+                                                                        <p>Here you'll find all projects tagged as
+                                                                            <p class="text-success">
+                                                                                <%= tag_name %>
+                                                                            </p>
                                                                         </p>
                                                                         <hr>
                                                                     </div>
@@ -239,6 +240,7 @@
                                                                     <div class="carousel-inner">
                                                                         <div class="item active">
                                                                             <div class="row">
+
                                                                                 <!-- Item 1 -->
                                                                                 <div class="col-sm-3">
                                                                                     <div class="col-item">
@@ -251,130 +253,6 @@
                                                                                         </div>
                                                                                         <div class="photo">
                                                                                             <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_001.jpg" class="img-responsive" alt="a"
-                                                                                            />
-                                                                                        </div>
-                                                                                        <div class="info">
-                                                                                            <div class="clearfix">Item info
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <!-- Item 2 -->
-                                                                                <div class="col-sm-3">
-                                                                                    <div class="col-item">
-                                                                                        <div class="info">
-                                                                                            <div class="row">
-                                                                                                <div class="name col-md-6">
-                                                                                                    <h5>Project B</h5>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="photo">
-                                                                                            <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_002.jpg" class="img-responsive" alt="a"
-                                                                                            />
-                                                                                        </div>
-                                                                                        <div class="info">
-                                                                                            <div class="clearfix">Item info
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <!-- Item 3 -->
-                                                                                <div class="col-sm-3">
-                                                                                    <div class="col-item">
-                                                                                        <div class="info">
-                                                                                            <div class="row">
-                                                                                                <div class="name col-md-6">
-                                                                                                    <h5>Project C</h5>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="photo">
-                                                                                            <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_003.jpg" class="img-responsive" alt="a"
-                                                                                            />
-                                                                                        </div>
-                                                                                        <div class="info">
-                                                                                            <div class="clearfix">Item info
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <!-- Item 4 -->
-                                                                                <div class="col-sm-3">
-                                                                                    <div class="col-item">
-                                                                                        <div class="info">
-                                                                                            <div class="row">
-                                                                                                <div class="name col-md-6">
-                                                                                                    <h5>Project D</h5>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="photo">
-                                                                                            <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_001.jpg" class="img-responsive" alt="a"
-                                                                                            />
-                                                                                        </div>
-                                                                                        <div class="info">
-                                                                                            <div class="clearfix">Item info
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!-- Item 5 -->
-                                                                        <div class="item">
-                                                                            <div class="row">
-                                                                                <div class="col-sm-3">
-                                                                                    <div class="col-item">
-                                                                                        <div class="info">
-                                                                                            <div class="row">
-                                                                                                <div class="name col-md-6">
-                                                                                                    <h5>Project E</h5>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="photo">
-                                                                                            <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_001.jpg" class="img-responsive" alt="a"
-                                                                                            />
-                                                                                        </div>
-                                                                                        <div class="info">
-                                                                                            <div class="clearfix">Item info
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <!-- Item 6 -->
-                                                                                <div class="col-sm-3">
-                                                                                    <div class="col-item">
-                                                                                        <div class="info">
-                                                                                            <div class="row">
-                                                                                                <div class="name col-md-6">
-                                                                                                    <h5>Project F</h5>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="photo">
-                                                                                            <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_002.jpg" class="img-responsive" alt="a"
-                                                                                            />
-                                                                                        </div>
-                                                                                        <div class="info">
-                                                                                            <div class="clearfix">Item info
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <!-- Item 7 -->
-                                                                                <div class="col-sm-3">
-                                                                                    <div class="col-item">
-                                                                                        <div class="info">
-                                                                                            <div class="row">
-                                                                                                <div class="name col-md-6">
-                                                                                                    <h5>Project G</h5>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="photo">
-                                                                                            <img src="http://www.prepbootstrap.com/Content/images/template/productslider/product_003.jpg" class="img-responsive" alt="a"
                                                                                             />
                                                                                         </div>
                                                                                         <div class="info">
@@ -409,7 +287,11 @@
                                                             <div class="row">
                                                                 <div class="row">
                                                                     <div class="col-lg-10">
-                                                                        <p>Here you'll find all Events tagged as [tag goes here]</p>
+                                                                        <p>Here you'll find all Events tagged as
+                                                                            <p class="text-success">
+                                                                                <%= tag_name %>
+                                                                            </p>
+                                                                        </p>
                                                                         <hr>
                                                                     </div>
                                                                     <div class="col-lg-2">
@@ -595,7 +477,11 @@
                                                             <div class="row">
                                                                 <div class="row">
                                                                     <div class="col-lg-10">
-                                                                        <p>Here you'll find all Groups tagged as [tag goes here]</p>
+                                                                        <p>Here you'll find all Groups tagged as
+                                                                            <p class="text-success">
+                                                                                <%= tag_name %>
+                                                                            </p>
+                                                                        </p>
                                                                         <hr>
                                                                     </div>
                                                                     <div class="col-lg-2">
