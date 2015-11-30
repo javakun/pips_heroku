@@ -207,13 +207,14 @@
                     <div class="panel-body bio-graph-info">
                       <h1><i class="fa fa-users"></i>Followers</h1>
                       <hr>
-                      <form class="form-horizontal" role="form">
+                      <% for(var i=0; i < followers.length; i++) {%)
+                      <form method="POST" class="form-horizontal" role="form" action="/profile/follower>
                         <div class="form-group">
                           <div class="col-lg-1">
                             <img src="img/pips_logo.jpg" class="img-circle img-responsive" alt="placeholder" width="50" height="50">
                           </div>
                           <div class="col-lg-4">
-                            <a href="/viewprofile"><h1>Bob</h1></a>
+                            <a href="#"><h1><%= followers[i].name %></h1></a>
                           </div>
                           <div class="col-lg-7" style="margin-top: 2%">
                             <button type="submit" class="btn btn-danger btn pull-right">Unfollow</button>

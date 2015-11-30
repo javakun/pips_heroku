@@ -117,7 +117,7 @@
               <ul class="dropdown-menu extended logout">
                 <div class="log-arrow-up"></div>
                 <li>
-                  <form action="/logout" method="POST">
+                  <form method="POST" action="/logout">
                     <button href="#"><i class="icon_key_alt" type="submit"></i> Log Out</button>
                   </form>
 
@@ -221,47 +221,38 @@
                         </div>
 
                       </div>
-                      <div class="col-lg-4 col-sm-4 follow-info">
+                      <div class="col-sm-2 follow-info">
                         <p>
                           <%= profile_desc %>
                         </p>
                         <p>
                           <%= user_email %>
                         </p>
+
                       </div>
-                      <div class="col-lg-2 col-sm-6 follow-info weather-category">
-                        <ul>
-                          <li class="active">
-
-                            <i class="fa fa-comments fa-2x"> </i>
-                            <br> Contrary to popular belief, Lorem Ipsum is not simply
-                          </li>
-
-                        </ul>
+                      <div class="col-lg-2  ">
+                        <div class="col-lg-10" style="margin-top: 15%; pull-right">
+                          <button type="submit" class="btn btn-primary btn pull-right">Create Event</button>
+                          <br></br>
+                        </div>
                       </div>
-                      <div class="col-lg-2 col-sm-6 follow-info weather-category">
-                        <ul>
-                          <li class="active">
-
-                            <i class="fa fa-bell fa-2x"> </i>
-                            <br> Contrary to popular belief, Lorem Ipsum is not simply
-                          </li>
-
-                        </ul>
+                      <div class="col-lg-2 ">
+                        <div class="col-lg-10" style="margin-top: 15%; pull-right">
+                          <button type="submit" class="btn btn-primary btn pull-right">Create Project Page</button>
+                          <br></br>
+                        </div>
                       </div>
-                      <div class="col-lg-2 col-sm-6 follow-info weather-category">
-                        <ul>
-                          <li class="active">
-
-                            <i class="fa fa-tachometer fa-2x"> </i>
-                            <br> Contrary to popular belief, Lorem Ipsum is not simply
-                          </li>
-
-                        </ul>
+                      <div class="col-lg-2 ">
+                        <div class="col-lg-10" style="margin-top: 15%; pull-right">
+                          <button type="submit" class="btn btn-primary btn pull-right">Create Group</button>
+                          <br></br>
+                        </div>
                       </div>
-                      <div class="col-lg-10" style="margin-top: 2%; pull-right">
-                        <button type="submit" class="btn btn-primary btn pull-right">Follow User</button>
-                        <br></br>
+                      <div class="col-lg-2 ">
+                        <div class="col-lg-10" style="margin-top: 15%; pull-right">
+                          <button type="submit" class="btn btn-primary btn pull-right">Follow User</button>
+                          <br></br>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -491,9 +482,12 @@
                                   <div class="col-lg-offset-2 col-lg-10">
                                     <button type="submit" class="btn btn-primary">Save</button>
                                     <button type="reset" class="btn btn-danger">Cancel</button>
-                                    <button type="submit" name="deleteaccount"  class="btn btn-danger">Delete Account</button>
+
                                   </div>
                                 </div>
+                              </form>
+                              <form method="POST" action="/profile/deleteaccount">
+                                <button type="submit" name="deleteaccount" class="btn btn-danger" >Delete Account</button>
                               </form>
                             </div>
                           </section>

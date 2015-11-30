@@ -94,10 +94,10 @@ app.use('/project', restrict, project);
 app.use('/viewalltags', restrict, viewalltags);
 app.use('/viewtagged', restrict, viewtagged);
 
-process.stdin.resume();//so the program will not close instantly
+
 
 function exitHandler(options, err) {
-    if (err) console.log(err.stack);
+    if (err) client.end();
     if (options.exit) client.end();
 }
 

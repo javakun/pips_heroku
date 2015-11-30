@@ -82,23 +82,34 @@ router.post('/updatebioinfo', function (req, res) {
       var profile_desc = req.body.profile_desc;
       var profile_country = req.body.profile_country;
       var profile_age = req.body.profile_age;
-      var deleteaccount = 0;
-      // deleteaccount = req.body.deleteaccount.value;
-      if (deleteaccount != 0) {
-            client.query("DELETE FROM users WHERE users.user_id = $1",
-                  [req.session.user.id], DelAccount);
-            function DelAccount(err, results) {
 
-                  req.session.user = null;
-                  res.redirect('/');
-            }
-      } else {
-            client.query("UPDATE profile SET profile_name= $1, profile_desc = $2, profile_country = $3, profile_age = $4 WHERE profile.profile_id = $5",
-                  [profile_name, profile_desc, profile_country, profile_age, req.session.user.id]);
-            res.redirect('/profile');
-      }
+      client.query("UPDATE profile SET profile_name= $1, profile_desc = $2, profile_country = $3, profile_age = $4 WHERE profile.profile_id = $5",
+            [profile_name, profile_desc, profile_country, profile_age, req.session.user.id]);
+      res.redirect('/profile');
+
 });
 
+router.post('/deleteaccount', function (req, res) {
 
+      client.query("DELETE FROM followers WHERE followers.user_id = $1",
+            [req.session.user.id]);
+      client.query("DELETE FROM post WHERE post.user_id = $1",
+            [req.session.user.id]);
+      client.query("DELETE FROM members WHERE members.user_id = $1",
+            [req.session.user.id]);
+      client.query("DELETE FROM notifications WHERE notifications.user_id = $1",
+            [req.session.user.id]);
+      client.query("DELETE FROM resume WHERE resume.user_id = $1",
+            [req.session.user.id]);
+      client.query("DELETE FROM profile WHERE profile.profile_id = $1",
+            [req.session.user.id]);
+      client.query("DELETE FROM users WHERE users.user_id = $1",
+            [req.session.user.id]);
+      
+      req.session.user = null;
+      res.redirect('/profile');
+
+
+});
 
 module.exports = router;
