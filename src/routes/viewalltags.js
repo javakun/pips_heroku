@@ -5,7 +5,7 @@ var client = require('../../db').getClient();
 //Method to fill the page with tag info from DB
 router.get('/', function (req, res) {
   var result = {};
-  client.query("SELECT * FROM tags", selectTags)
+  client.query("SELECT * FROM tags", selectTags);
  
   function selectTags(err, results) {
     result.tags = results.rows.map(function (tag) {
@@ -24,15 +24,16 @@ router.get('/', function (req, res) {
 
 //Method to give ViewTagged the info of the tag we clicked
 router.get('/viewTagged', function (req, res, next) { 
-  var url = req.url;
-  console.log(url)
-  var lastWord = url.split("/viewTagged?tagButton=").join('');
+  //var url = req.url;
+  //console.log(url)
+  var result = {}
+  var lastWord = req.query.tagButton; //url.split("/viewTagged?tagButton=").join('');
   console.log(lastWord);
   var tag_id = client.query("SELECT tag_id FROM tags WHERE tags.tag_name = $1",[lastWord]);
   
-  var result = {}
+ 
   
-  client.query("SELECT project_id, project_name FROM project WHERE tag_id = $1",[lastWord]);
+  client.query("SELECT project_id, project_name FROM project WHERE project.tag_id = $1",[lastWord]);
   
   function selectProjects(err, results) {
     result.projects = results.rows.map(function(project) {
@@ -41,7 +42,7 @@ router.get('/viewTagged', function (req, res, next) {
         p_name: project.project_name
       }
     });
-    client.query("SELECT group_id, group_name FROM groups WHERE tag_id = $1", [lastWord], selectGroups);
+    client.query("SELECT group_id, group_name FROM groups WHERE groups.tag_id = $1", [lastWord], selectGroups);
   }
   function selectGroups(err, results) {
     result.notifications = results.rows.map(function(group) {
@@ -50,7 +51,7 @@ router.get('/viewTagged', function (req, res, next) {
         g_name: group.group_name
       }
     });
-    client.query("SELECT event_id, group_id FROM event WHERE tag_id = $1", [lastWord], displayData); 
+    client.query("SELECT event_id, group_id FROM event WHERE event.tag_id = $1", [lastWord], displayData); 
   }
   function displayData(err, results) {
      res.render('view/ViewTagged.html', {
