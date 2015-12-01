@@ -41,11 +41,9 @@ app.use(session({
 
 
 //routes
-var users = require('./src/routes/users');
 var catalogueevents = require('./src/routes/catalogueevents');
 var cataloguegroups = require('./src/routes/cataloguegroups');
 var catalogueprojects = require('./src/routes/catalogueprojects');
-var cataloguefollowers = require('./src/routes/cataloguefollowers');
 var createaccount = require('./src/routes/createaccount');
 var createproject = require('./src/routes/createproject');
 var createprofile = require('./src/routes/createprofile');
@@ -72,13 +70,11 @@ function restrict(req, res, next) {
 
 //using routes
 app.use('/', login);
-app.use('/users', restrict, users);
 app.use('/create', restrict, createproject);
 app.use('/submit', restrict, submitresume);
 app.use('/catalogueevents', restrict, catalogueevents);
 app.use('/cataloguegroups', restrict, cataloguegroups);
 app.use('/catalogueprojects', restrict, catalogueprojects);
-app.use('/cataloguefollowers', restrict, cataloguefollowers);
 app.use('/createaccount', createaccount);
 app.use('/createproject', restrict, createproject)
 app.use('/createprofile', restrict, createprofile);
