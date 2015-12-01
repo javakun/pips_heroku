@@ -247,7 +247,6 @@
               <div class="row">
                 <div class="col-lg-12">
                   <section class="panel">
-
                     <header class="panel-heading tab-bg-info">
                       <ul class="nav nav-tabs">
                         <li class="active">
@@ -261,11 +260,6 @@
                           </a>
                         </li>
                         <li>
-                          <a data-toggle="tab" href="#followers">
-                            <i class="icon-user"></i> Followers
-                          </a>
-                        </li>
-                        <li>
                           <li>
                             <a data-toggle="tab" href="#groups">
                               <i class="icon-user"></i> Groups
@@ -274,6 +268,11 @@
                           <li>
                             <a data-toggle="tab" href="#projects">
                               <i class="icon-user"></i> Projects
+                            </a>
+                          </li>
+                          <li>
+                            <a data-toggle="tab" href="#followers">
+                              <i class="icon-user"></i> Followers
                             </a>
                           </li>
                           <li>
@@ -385,32 +384,8 @@
                             </div>
                           </section>
                         </div>
-                        <!-- followers -->
-                        <div id="followers" class="tab-pane">
-                          <section class="panel">
-                            <div class="panel-body bio-graph-info">
-                              <h1>Followers</h1>
-                              <hr>
-                              <form method="POST" class="form-horizontal" role="form" action="/profile/follower">
-                                <% for(var i=0; i < followers.length; i++) {%>
-                                  <div class=" form-group ">
-                                    <div class="col-lg-1 ">
-                                      <img src="img/pips_logo.jpg " class="img-circle img-responsive " alt="placeholder " width="50" height="50 ">
-                                    </div>
-                                    <div class="col-lg-4 ">
-                                      <a href="# "><h1><%= followers[i].name %></h1> </a>
-                                    </div>
-                                    <div class="col-lg-7 " style="margin-top: 2% ">
-                                      <button type="submit " class="btn btn-danger btn pull-right ">Unfollow</button>
-                                    </div>
-                                  </div>
-                              </form>
-                            </div>
-                          </section>
-                        </div>
-
                         <!-- groups -->
-                        <div id="groups " class="tab-pane ">
+                        <div id="groups" class="tab-pane ">
                           <section class="panel ">
                             <div class="panel-body bio-graph-info ">
                               <h1>Groups</h1>
@@ -418,16 +393,15 @@
                               <form class="form-horizontal " role="form ">
                                 <div class="form-group ">
                                   <div class="col-lg-2 ">
-                                    <img src="img/12048903_10153709165902375_2021103471_n.jpg " class="img-thumbnail img-responsive
-                                  " alt="placeholder " width="100 " height="100 ">
+                                    <img src="img/12048903_10153709165902375_2021103471_n.jpg " class="img-thumbnail img-responsive" alt="placeholder " width="100 "
+                                    height="100 ">
                                   </div>
                                   <h1>PIPS Team</h1>
                                   <p>Group description 1</p>
                                 </div>
                                 <div class="form-group ">
                                   <div class="col-lg-2 ">
-                                    <img src="img/default-placeholder.png " class="img-thumbnail img-responsive " alt="placeholder
-                                  " width="100 " height="100 ">
+                                    <img src="img/default-placeholder.png " class="img-thumbnail img-responsive " alt="placeholder" width="100 " height="100 ">
                                   </div>
                                   <h1>Programmers with Attitude</h1>
                                   <p>Group description 2</p>
@@ -436,9 +410,8 @@
                             </div>
                           </section>
                         </div>
-
                         <!-- projects -->
-                        <div id="projects " class="tab-pane ">
+                        <div id="projects" class="tab-pane ">
                           <section class="panel ">
                             <div class="panel-body bio-graph-info ">
                               <h1>Projects</h1>
@@ -446,16 +419,15 @@
                               <form class="form-horizontal " role="form ">
                                 <div class="form-group ">
                                   <div class="col-lg-2 ">
-                                    <img src="img/12048903_10153709165902375_2021103471_n.jpg " class="img-thumbnail img-responsive
-                                  " alt="placeholder " width="100 " height="100 ">
+                                    <img src="img/12048903_10153709165902375_2021103471_n.jpg " class="img-thumbnail img-responsive" alt="placeholder " width="100 "
+                                    height="100 ">
                                   </div>
                                   <h1>PIPS Project</h1>
                                   <p>Project description 1</p>
                                 </div>
                                 <div class="form-group ">
                                   <div class="col-lg-2 ">
-                                    <img src="img/wacky-tube-man.gif " class="img-thumbnail img-responsive " alt="placeholder
-                                  " width="100 " height="100 ">
+                                    <img src="img/wacky-tube-man.gif " class="img-thumbnail img-responsive " alt="placeholder" width="100 " height="100 ">
                                   </div>
                                   <h1>Wacky Inflatable Tube Man Simulator</h1>
                                   <p>Group description 2</p>
@@ -464,9 +436,30 @@
                             </div>
                           </section>
                         </div>
-
+                        <!-- followers -->
+                        <div id="followers" class="tab-pane">
+                          <section class="panel">
+                            <div class="panel-body bio-graph-info">
+                              <h1>Followers</h1>
+                              <hr>
+                              <form class="form-horizontal " role="form ">
+                                <div class=" form-group ">
+                                  <div class="col-lg-2 ">
+                                    <img src="img/pips_logo.jpg " class="img-circle img-responsive " alt="placeholder " width="50" height="50 ">
+                                  </div>
+                                  <div class="col-lg-2 ">
+                                    <a href=""><h1>BOB</h1> </a>
+                                  </div>
+                                  <div class="col-lg-7 " >
+                                    <button type="submit " class="btn btn-danger btn pull-right ">Unfollow</button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </section>
+                        </div>
                         <!-- edit-profile -->
-                        <div id="edit-profile " class="tab-pane ">
+                        <div id="edit-profile" class="tab-pane ">
                           <section class="panel ">
                             <div class="panel-body bio-graph-info ">
                               <h1> Profile Info</h1>
@@ -480,19 +473,19 @@
                                 <div class="form-group ">
                                   <label class="col-lg-2 control-label "> Description </label>
                                   <div class="col-lg-10 ">
-                                    <textarea name="profile_desc " class="form-control " cols="30 " rows="5 "></textarea>
+                                    <textarea name="profile_desc " class="form-control " cols="30" rows="5 "></textarea>
                                   </div>
                                 </div>
                                 <div class="form-group ">
                                   <label class="col-lg-2 control-label ">Country</label>
                                   <div class="col-lg-6 ">
-                                    <input type="text " class="form-control " name="profile_country " placeholder=" ">
+                                    <input type="text " class="form-control " name="profile_country" placeholder=" ">
                                   </div>
                                 </div>
                                 <div class="form-group ">
                                   <label class="col-lg-2 control-label ">Age</label>
                                   <div class="col-lg-6 ">
-                                    <input type="text " class="form-control " name="profile_age " placeholder=" ">
+                                    <input type="text " class="form-control " name="profile_age" placeholder=" ">
                                   </div>
                                 </div>
                                 <div class="form-group ">
@@ -504,7 +497,7 @@
                                 </div>
                               </form>
                               <form method="POST " action="/profile/deleteaccount ">
-                                <button type="submit " name="deleteaccount " class="btn btn-danger " style="pull-right ">Delete Account</button>
+                                <button type="submit " name="deleteaccount " class="btn btn-danger pull-right" >Delete Account</button>
                               </form>
                             </div>
                           </section>

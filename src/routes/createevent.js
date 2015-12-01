@@ -27,6 +27,7 @@ router.post('/createEv', function (req, res, next) {
 
 /* GET Create Event page. */
 router.get('/', function (req, res, next) {
+  
   res.render('create/CreateEventPage.html', { 
     sitename: 'Create Event',
     admin_name: req.session.user.name,

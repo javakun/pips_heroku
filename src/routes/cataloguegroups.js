@@ -4,6 +4,7 @@ var client = require('../../db').getClient();
 
 /* GET About Us page. */
 router.get('/', function(req, res, next) {
+  
    var result = {};
     client.query("SELECT * FROM groups ",selectGroup);
 
