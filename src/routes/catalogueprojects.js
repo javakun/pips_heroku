@@ -8,8 +8,8 @@ router.get('/', function (req, res, next) {
   var result = {};
   client.query("SELECT * FROM project ", selectProject);
 
-  function selectProject(error, r1) {
-    result.project = r1.rows.map(function (project) {
+  function selectProject(err, results) {
+    result.project = results.rows.map(function (project) {
 
       return {
 

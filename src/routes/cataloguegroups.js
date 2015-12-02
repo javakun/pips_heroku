@@ -8,8 +8,8 @@ router.get('/', function(req, res, next) {
    var result = {};
     client.query("SELECT * FROM groups ",selectGroup);
 
-    function selectGroup(error, r1) {
-        result.group = r1.rows.map(function (group) {
+    function selectGroup(err, results) {
+        result.group = results.rows.map(function (group) {
 
             return {
 

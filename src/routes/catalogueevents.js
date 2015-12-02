@@ -10,19 +10,19 @@ router.get('/', function (req, res) {
         [req.session.user.id],
         selectEvent);
 
-    function selectEvent(error, r1) {
-        result.events = r1.rows.map(function (event) {
+    function selectEvent(err, results) {
+        result.events = results.rows.map(function (event) {
 
             return {
 
-                id: event.event_id,
-                name: event.event_name,
-                location: event.event_loc,
-                date: event.event_date,
-                description: event.event_description,
-                admin: event.admin_id,
-                member_list: event.member_list,
-                tag_list: event.tag_list
+                e_id: event.event_id,
+                e_name: event.event_name,
+                e_location: event.event_loc,
+                e_date: event.event_date,
+                e_description: event.event_description,
+                e_admin: event.admin_id,
+                e_member_list: event.member_list,
+                e_tag_list: event.tag_list
             }
         });
         client.query("SELECT * FROM notifications WHERE notifications.user_id = $1",
