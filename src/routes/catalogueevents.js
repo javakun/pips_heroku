@@ -4,8 +4,8 @@ var client = require('../../db').getClient();
 
 /* GET About Us page. */
 router.get('/', function (req, res) {
-
     var result = {};
+
    // client.query("SELECT * FROM event WHERE event.member_list @> '{$1}'::int[];",
    client.query("SELECT * FROM event ",
         selectEvent);

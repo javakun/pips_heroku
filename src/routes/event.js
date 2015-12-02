@@ -4,38 +4,34 @@ var client = require('../../db').getClient();
 
 /* GET About Us page. */
 router.get('/', function (req, res) {
-      
-       var result = {};
+    var result = {};
+    var eventName;
+    eventName = req.query.eventName; //url.split("/viewTagged?tagButton=").join('');
+    // client.query("SELECT * FROM event WHERE event.member_list @> '{$1}'::int[];",
+    client.query("SELECT * FROM event WHERE event_name = '" + eventName + "'", eventData);
 
-  client.query("SELECT * FROM notifications WHERE notifications.user_id = $1",
-    [req.session.user.id],
-    selectNotifications);
-
-
-  function selectNotifications(err, results) {
-    result.notifications = results.rows.map(function (notification) {
-      return {
-        id: notification.noti_id,
-        description: notification.noti_description,
-        title: notification.noti_title,
-        link: notification.noti_link
-      }
-    });
-    client.query("SELECT * FROM profile WHERE profile.profile_id = $1",
-      [req.session.user.id], displayData);
-
-  }
-
-  function displayData(err, results) {
-    res.render('page/EventPage.html', {
-      //information to be used for template filling
-      pagename: 'PIPS - Event Page',
-      profile_name: results.rows[0].profile_name,
-      notification: result.notifications,
-      admin_name: req.session.user.name,
-      admin_email: req.session.user.user_email
-    })
-  }
+    function eventData(err, eventCatalogueResult) {
+        result.event = eventCatalogueResult.rows.map(function (event) {
+            return {
+                eventId: event.event_id,
+                eventName: event.event_name,
+                eventDesc: event.event_description,
+                eventDate: event.event_date,
+                eventLoc: event.event_loc,
+                eventAdmin: event.admin_id,
+                eventMembers: event.member_list,
+                eventTags: event.tag_list
+            }
+        });
+        res.render('page/EventPage.html', {
+            //information to be used for template filling
+            pagename: 'PIPS - Event - ' + result.event.eventName,
+            event: result.event,
+            length: 1,
+            user_email: req.session.user.user_email
+        });
+    }
 
 });
+
 module.exports = router;
