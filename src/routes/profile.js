@@ -5,7 +5,44 @@ var client = require('../../db').getClient();
 // Method to query information from different tables to fill the profile.
 router.get('/', function (req, res) {
       var result = {};
-      client.query("SELECT * FROM post WHERE post.user_id = $1", [req.session.user.id], selectPost);
+      
+       client.query("SELECT * FROM project WHERE project.member_list @> '{"+ req.session.user.id +"}'::int[]",selectProjects);
+      
+      function selectProjects(err, results) {
+            result.project = results.rows.map(function (project) {
+                  return {
+                        project_id: project.project_id,
+                        project_name: project.project_name,
+                        project_description:project.project_description
+                        
+                  }
+            })
+            client.query("SELECT * FROM groups WHERE groups.member_list @> '{"+ req.session.user.id +"}'::int[]",selectGroups);
+      }
+
+      function selectGroups(err, results) {
+            result.groups = results.rows.map(function (groups) {
+                  return {
+                        group_id: groups.group_id,
+                        group_name: groups.group_name,
+                        group_desc: groups.group_description
+                  }
+            })
+          client.query("SELECT * FROM followers WHERE followers.user_id = $1  ", [req.session.user.id], selectFollowers);
+      }
+      function selectFollowers(err, results) {
+            
+            result.followers = results.rows.map(function (followers) {
+                 var following;
+                 following = client.query("SELECT * FROM profile WHERE profile.profile_id = $1",
+                  [ followers.followers_id]);
+                  return {
+                        follower: following
+                  }
+            })
+            client.query("SELECT * FROM post WHERE post.user_id = $1", [req.session.user.id], selectPost);
+      
+      }
 
       function selectPost(err, results) {
             result.posts = results.rows.map(function (post) {
@@ -48,7 +85,10 @@ router.get('/', function (req, res) {
                         profile_country: results.rows[0].profile_country,
                         profile_resume: result.resume,
                         notification: result.notifications,
-                        posts: result.posts
+                        posts: result.posts,
+                        groups:result.groups,
+                        projects:result.project,
+                        followers:result.followers
                   })
             } else {
                   res.redirect('/createprofile')
@@ -65,7 +105,6 @@ router.post('/postinfo', function (req, res) {
 
             post_id = results.rows[0].post_id;
             post_id = post_id + 1;
-            var post_title = req.body.post_title;
             var post_content = req.body.post_content;
 
             client.query("INSERT INTO post VALUES($1, $2, $3)",
@@ -105,7 +144,7 @@ router.post('/deleteaccount', function (req, res) {
             [req.session.user.id]);
       client.query("DELETE FROM users WHERE users.user_id = $1",
             [req.session.user.id]);
-      
+
       req.session.user = null;
       res.redirect('/profile');
 
