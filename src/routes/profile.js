@@ -130,15 +130,8 @@ router.post('/updatebioinfo', function (req, res) {
 
 router.post('/deleteaccount', function (req, res) {
 
-      client.query("DELETE FROM followers WHERE followers.user_id = $1",
-            [req.session.user.id]);
+      
       client.query("DELETE FROM post WHERE post.user_id = $1",
-            [req.session.user.id]);
-      client.query("DELETE FROM members WHERE members.user_id = $1",
-            [req.session.user.id]);
-      client.query("DELETE FROM notifications WHERE notifications.user_id = $1",
-            [req.session.user.id]);
-      client.query("DELETE FROM resume WHERE resume.user_id = $1",
             [req.session.user.id]);
       client.query("DELETE FROM profile WHERE profile.profile_id = $1",
             [req.session.user.id]);
