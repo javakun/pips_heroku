@@ -107,7 +107,7 @@
                 <span class="profile-ava">
                     <img alt="" src="img/avatar1_small.jpg">
               </span>
-                <span class="username">*<%= profile_name %></span>
+                <span class="username"><%= profile_name %></span>
                 <b class="caret"></b>
               </a>
               <ul class="dropdown-menu extended logout">
@@ -209,7 +209,7 @@
                                   <% for(var i=0 ; i< tags.length ; i++) {%>
                                     <tr>
                                       <td>
-                                        <button name="tagButton" type="submit" class="btn btn-success " value=<%=t ags[tags.length-i-1].tag_name %>><i class="fa fa-tag "></i>
+                                        <button name="tagButton" type="submit" class="btn btn-success " value=<%= tags[tags.length-i-1].tag_name %>><i class="fa fa-tag "></i>
                                           <%= tags[tags.length-i-1].tag_name %>
                                         </button>
                                       </td>

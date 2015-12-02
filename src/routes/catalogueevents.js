@@ -6,15 +6,14 @@ var client = require('../../db').getClient();
 router.get('/', function (req, res) {
 
     var result = {};
-    client.query("SELECT * FROM event WHERE event.member_list @> '{$1}'::int[];",
-        [req.session.user.id],
+   // client.query("SELECT * FROM event WHERE event.member_list @> '{$1}'::int[];",
+   client.query("SELECT * FROM event ",
         selectEvent);
 
     function selectEvent(err, results) {
         result.events = results.rows.map(function (event) {
 
             return {
-
                 e_id: event.event_id,
                 e_name: event.event_name,
                 e_location: event.event_loc,

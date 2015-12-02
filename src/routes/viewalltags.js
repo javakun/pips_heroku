@@ -29,11 +29,12 @@ router.get('/', function (req, res) {
     result.tags = results.rows.map(function (tag) {
       return { 
         tag_id: tag.tag_id,
-        tag_name: tag.tag_name }   
-        
+        tag_name: tag.tag_name
+         }   
+        }); 
         client.query("SELECT * FROM profile WHERE profile.profile_id = $1",
       [req.session.user.id], displayData);    
-    });
+   
   }
   function displayData(err, results) {    
     res.render('view/ViewAllTags.html', {
@@ -57,7 +58,8 @@ router.get('/viewTagged', function (req, res, next) {
   //var url = req.url;
   //console.log(url)
   var result = {}
-  var lastWord = req.query.tagButton; //url.split("/viewTagged?tagButton=").join('');
+  var lastWord = {}
+   lastWord = req.query.tagButton; //url.split("/viewTagged?tagButton=").join('');
   console.log(lastWord);
  
   client.query("SELECT project_id, project_name FROM project WHERE project.tag_id = $1",[lastWord]);
