@@ -299,13 +299,7 @@
                                 <div class="padd">
                                   <div class="form quick-post">
                                     <form method="POST" class="form-horizontal" action="/profile/postinfo">
-                                      <!-- Title -->
-                                      <div class="form-group">
-                                        <label class="control-label col-lg-2" for="title">Title</label>
-                                        <div class="col-lg-10">
-                                          <input type="text" class="form-control" name="post_title">
-                                        </div>
-                                      </div>
+                                      
                                       <!-- Content -->
                                       <div class="form-group">
                                         <label class="control-label col-lg-2" for="content">Content</label>
@@ -391,21 +385,15 @@
                               <h1>Groups</h1>
                               <hr>
                               <form class="form-horizontal " role="form ">
-                                <div class="form-group ">
-                                  <div class="col-lg-2 ">
-                                    <img src="img/12048903_10153709165902375_2021103471_n.jpg " class="img-thumbnail img-responsive" alt="placeholder " width="100 "
-                                    height="100 ">
+                                <% for(var i= 0 ; i< groups.length ;i++) {%>
+                                  <div class="form-group ">
+                                    <div class="col-lg-2 ">
+                                      <img src="img/pips_logo.jpg" class="img-thumbnail img-responsive " alt="placeholder" width="100 " height="100 ">
+                                    </div>
+                                    <h1><%= groups[(groups.length-i-1)].group_name %></h1>
+                                    
                                   </div>
-                                  <h1>PIPS Team</h1>
-                                  <p>Group description 1</p>
-                                </div>
-                                <div class="form-group ">
-                                  <div class="col-lg-2 ">
-                                    <img src="img/default-placeholder.png " class="img-thumbnail img-responsive " alt="placeholder" width="100 " height="100 ">
-                                  </div>
-                                  <h1>Programmers with Attitude</h1>
-                                  <p>Group description 2</p>
-                                </div>
+                                  <% } %>
                               </form>
                             </div>
                           </section>
@@ -417,21 +405,14 @@
                               <h1>Projects</h1>
                               <hr>
                               <form class="form-horizontal " role="form ">
-                                <div class="form-group ">
-                                  <div class="col-lg-2 ">
-                                    <img src="img/12048903_10153709165902375_2021103471_n.jpg " class="img-thumbnail img-responsive" alt="placeholder " width="100 "
-                                    height="100 ">
+                                <% for(var i= 0 ; i< projects.length ;i++) {%>
+                                  <div class="form-group ">
+                                    <div class="col-lg-2 ">
+                                      <img src="img/pips_logo.jpg " class="img-thumbnail img-responsive " alt="placeholder" width="100 " height="100 ">
+                                    </div>
+                                    <h1><%= projects[(projects.length-i-1)].projects_name %></h1>
                                   </div>
-                                  <h1>PIPS Project</h1>
-                                  <p>Project description 1</p>
-                                </div>
-                                <div class="form-group ">
-                                  <div class="col-lg-2 ">
-                                    <img src="img/wacky-tube-man.gif " class="img-thumbnail img-responsive " alt="placeholder" width="100 " height="100 ">
-                                  </div>
-                                  <h1>Wacky Inflatable Tube Man Simulator</h1>
-                                  <p>Group description 2</p>
-                                </div>
+                                  <% } %>
                               </form>
                             </div>
                           </section>
@@ -443,17 +424,19 @@
                               <h1>Followers</h1>
                               <hr>
                               <form class="form-horizontal " role="form ">
-                                <div class=" form-group ">
-                                  <div class="col-lg-2 ">
-                                    <img src="img/pips_logo.jpg " class="img-circle img-responsive " alt="placeholder " width="50" height="50 ">
+                                <% for(var i= 0 ; i< followers.length ;i++) {%>
+                                  <div class=" form-group ">
+                                    <div class="col-lg-2 ">
+                                      <img src="img/pips_logo.jpg " class="img-circle img-responsive " alt="placeholder " width="50" height="50 ">
+                                    </div>
+                                    <div class="col-lg-2 ">
+                                      <h1><%= followers[i].followers_id %></h1> 
+                                    </div>
+                                    <div class="col-lg-7 ">
+                                      <button type="submit " class="btn btn-danger btn pull-right ">Unfollow</button>
+                                    </div>
                                   </div>
-                                  <div class="col-lg-2 ">
-                                    <a href=""><h1>BOB</h1> </a>
-                                  </div>
-                                  <div class="col-lg-7 " >
-                                    <button type="submit " class="btn btn-danger btn pull-right ">Unfollow</button>
-                                  </div>
-                                </div>
+                                  <% } %>
                               </form>
                             </div>
                           </section>
@@ -497,7 +480,7 @@
                                 </div>
                               </form>
                               <form method="POST " action="/profile/deleteaccount ">
-                                <button type="submit " name="deleteaccount " class="btn btn-danger pull-right" >Delete Account</button>
+                                <button type="submit " name="deleteaccount " class="btn btn-danger pull-right">Delete Account</button>
                               </form>
                             </div>
                           </section>
