@@ -23,11 +23,14 @@ router.get('/', function (req, res) {
                 eventTags: event.tag_list
             }
         });
+        client.query("SELECT * FROM users", display);
+    }
+    function display(){
         res.render('page/EventPage.html', {
             //information to be used for template filling
             pagename: 'PIPS - Event - ' + result.event.eventName,
             event: result.event,
-            length: 1,
+            length: "hi",
             user_email: req.session.user.user_email
         });
     }
