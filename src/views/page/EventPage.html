@@ -66,7 +66,7 @@
         <div class="navbar-header ">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"><%= length %></span>
+                <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
@@ -106,7 +106,7 @@
                 <span class="profile-ava">
                     <img alt="" src="img/avatar1_small.jpg">
               </span>
-                            <span class="username"><%= event.eventName %></span>
+                            <span class="username"><%= E.eventName %></span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -260,27 +260,29 @@
                                                         <hr>
                                                         <div class="row">
                                                             <div class="bio-row">
-                                                                <p><span>Event Name </span>: <%= event.eventName %></p>
+                                                                <p><span>Event Name </span>: <%= E[0].eventName %></p>
                                                             </div>
                                                             <div class="bio-row">
-                                                                <p><span>Event Administrator</span>: <%= event.eventAdmin %></p>
+                                                                <p><span>Event Administrator</span>: <%= E[0].eventAdmin %></p>
                                                             </div>
                                                             <div class="bio-row">
-                                                                <p><span>Start Date</span>: <%= event.eventDate %></p>
+                                                                <p><span>Start Date</span>: <%= E[0].eventDate %></p>
                                                             </div>
                                                             <div class="bio-row">
-                                                                <% for(var i=0 ; i< event.eventMembers.length ; i++) {%>
                                                                 <p><span>Team Members </span>:</p>
-                                                                <p> <%= event.eventMembers[i] %></p>
+                                                                <% for(var i=0 ; i< E[0].eventMembers.length ; i++) {%>
+                                                                <p> <%= E[0].eventMembers[i] %></p>
                                                                 <% }%>
                                                             </div>
                                                             <div class="bio-row">
                                                                 <p><span>Tags </span>:
-                                                                    <button type="button" class="btn btn-success"><i class="fa fa-tag"></i> Robotics</button>
+                                                                <% for(var i=0 ; i< E[0].eventTags.length ; i++) {%>
+                                                                <button type="button" class="btn btn-success"><i class="fa fa-tag"></i> <%= E[0].eventTags[i] %></button>
+                                                                <% }%>
                                                                 </p>
                                                             </div>
                                                             <div class="bio-row">
-                                                                <p><span>Creator Email </span>: <%= event.eventAdmin %></p>
+                                                                <p><span>Creator Email </span>: <%= E[0].eventAdmin %></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -299,7 +301,7 @@
                                                             <div class="form-group">
                                                                 <label class="col-sm-2 control-label">Event Name</label>
                                                                 <div class="col-sm-8">
-                                                                    <p class="form-control-static" ><%= event.eventName %></p>
+                                                                    <p class="form-control-static" ><%= E[0].eventName %></p>
                                                                 </div>
                                                                 <div class="col-sm-2">
                                                                     <button type="button" id="edit-button" class="btn btn-default"><i class="fa fa-pencil-square-o"></i>Edit</button>
@@ -308,7 +310,7 @@
                                                             <div class="form-group">
                                                                 <label class="col-sm-2 control-label">Event Administrator</label>
                                                                 <div class="col-sm-8">
-                                                                    <p class="form-control-static"><%= event.eventAdmin %></p>
+                                                                    <p class="form-control-static"><%= E[0].eventAdmin %></p>
                                                                 </div>
                                                                 <div class="col-sm-2">
                                                                     <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o"></i>Edit</button>
@@ -317,7 +319,7 @@
                                                             <div class="form-group">
                                                                 <label class="col-sm-2 control-label">Event Description</label>
                                                                 <div class="col-sm-8">
-                                                                    <p class="form-control-static"><%= event.eventDesc %></p>
+                                                                    <p class="form-control-static"><%= E[0].eventDesc %></p>
                                                                 </div>
                                                                 <div class="col-sm-2">
                                                                     <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o"></i>Edit</button>
@@ -326,7 +328,7 @@
                                                             <div class="form-group">
                                                                 <label class="col-sm-2 control-label">Event Date</label>
                                                                 <div class="col-sm-8">
-                                                                    <p class="form-control-static"><%= event.eventDate %></p>
+                                                                    <p class="form-control-static"><%= E[0].eventDate %></p>
                                                                 </div>
                                                                 <div class="col-sm-2">
                                                                     <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o"></i>Edit</button>
@@ -351,7 +353,7 @@
                                                             <div class="form-group">
                                                                 <label class="col-lg-2 control-label">Administrator Email</label>
                                                                 <div class="col-lg-8">
-                                                                    <p class="form-control-static"><%= event.eventAdmin %></p>
+                                                                    <p class="form-control-static"><%= E[0].eventAdmin %></p>
                                                                 </div>
                                                                 <div class="col-sm-2">
                                                                     <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o"></i>Edit</button>

@@ -5,13 +5,13 @@ var client = require('../../db').getClient();
 /* GET About Us page. */
 router.get('/', function (req, res) {
     var result = {};
-    var eventName;
+    var eventName= "";
     eventName = req.query.eventName; //url.split("/viewTagged?tagButton=").join('');
     // client.query("SELECT * FROM event WHERE event.member_list @> '{$1}'::int[];",
-    client.query("SELECT * FROM event WHERE event_name = '" + eventName + "'", eventData);
+    client.query("SELECT * FROM event WHERE event_name = '"+ eventName +"';", eventData);
 
     function eventData(err, eventCatalogueResult) {
-        result.event = eventCatalogueResult.rows.map(function (event) {
+        result.e = eventCatalogueResult.rows.map(function (event) {
             return {
                 eventId: event.event_id,
                 eventName: event.event_name,
@@ -23,14 +23,12 @@ router.get('/', function (req, res) {
                 eventTags: event.tag_list
             }
         });
-        client.query("SELECT * FROM users", display);
+        display(result);
     }
-    function display(){
+
+    function display(r){
         res.render('page/EventPage.html', {
-            //information to be used for template filling
-            pagename: 'PIPS - Event - ' + result.event.eventName,
-            event: result.event,
-            length: "hi",
+            E: r.e,
             user_email: req.session.user.user_email
         });
     }
