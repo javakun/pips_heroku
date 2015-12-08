@@ -16,7 +16,7 @@ router.post('/createPro', function (req, res, next) {
   
   function create(err, result){
     client.query("INSERT INTO project VALUES($1, $2, $3, $4, $5, $6, $7)", [Project_ID, Project_Name, Project_Desc, Project_AdminID, Project_Comp, Member_List, Tag_List]);
-    res.redirect('/project');
+    res.redirect('/catalogueprojects');
   }
 
 });
